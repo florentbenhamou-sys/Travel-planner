@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#2563eb">
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="manifest.json">
+
+<!-- iOS : icône sur l'écran d'accueil -->
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="apple-mobile-web-app-title" content="Travel">
+
+<title>Travel Planner</title>
+<style>
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-light: #dbeafe;
+  --accent: #f59e0b;
+  --danger: #ef4444;
+  --success: #10b981;
+  --bg: #f1f5f9;
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --text: #1e293b;
+  --muted: #64748b;
+  --sidebar-w: 260px;
+  --header-h: 56px;
+  --nav-h: 48px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+html { height: -webkit-fill-available; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg); color: var(--text);
+  height: 100vh; height: -webkit-fill-available; height: 100dvh;
+  display: flex; flex-direction: column; overflow: hidden;
+  padding-left: var(--safe-left); padding-right: var(--safe-right);
+}
+
+/* ── HEADER ── */
+#header {
+  background: var(--primary); color: #fff;
+  display: flex; align-items: center; gap: 8px;
+  padding: calc(var(--safe-top) + 10px) 12px 10px;
+  flex-shrink: 0; box-shadow: 0 2px 8px rgba(0,0,0,.2); min-height: var(--header-h);
+}
+#header h1 { font-size: 16px; font-weight: 700; white-space: nowrap; }
+#burger {
+  display: none; background: rgba(255,255,255,.2); border: none; color: #fff;
+  width: 36px; height: 36px; border-radius: 6px; cursor: pointer; font-size: 18px;
+  align-items: center; justify-content: center; flex-shrink: 0;
+}
+#file-zone { flex: 1; display: flex; align-items: center; gap: 6px; min-width: 0; }
+#file-info {
+  flex: 1; font-size: 11px; background: rgba(255,255,255,.15);
+  border-radius: 6px; padding: 4px 8px; overflow: hidden;
+  text-overflow: ellipsis; white-space: nowrap; min-width: 0; cursor: default;
+}
+#file-info.empty { opacity: .55; font-style: italic; }
+#file-info.ok { background: rgba(16,185,129,.3); }
+#file-info.warn { background: rgba(245,158,11,.35); }
+#file-info.fallback { background: rgba(255,255,255,.12); font-style: italic; }
+#btn-reconnect {
+  background: rgba(245,158,11,.9); border: none; color: #1e293b;
+  padding: 5px 9px; border-radius: 6px; cursor: pointer; font-size: 11px;
+  font-weight: 700; white-space: nowrap; display: none; flex-shrink: 0;
+}
+.hbtn {
+  background: rgba(255,255,255,.2); border: none; color: #fff;
+  padding: 7px 11px; border-radius: 6px; cursor: pointer; font-size: 13px;
+  white-space: nowrap; transition: background .15s; flex-shrink: 0; min-height: 36px;
+}
+.hbtn:active { background: rgba(255,255,255,.4); }
+.hbtn.save { background: var(--accent); color: #1e293b; font-weight: 700; }
+.hbtn.save:disabled { opacity: .4; cursor: not-allowed; }
+#modified-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; display: none; flex-shrink: 0; }
+#modified-dot.show { display: block; }
+
+/* ── NAV ── */
+#nav {
+  background: #fff; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 2px; padding: 6px 8px;
+  flex-shrink: 0; overflow-x: auto; -webkit-overflow-scrolling: touch;
+}
+#nav::-webkit-scrollbar { display: none; }
+.nav-tab {
+  padding: 7px 13px; border-radius: 6px; cursor: pointer; font-size: 13px;
+  font-weight: 500; color: var(--muted); border: none; background: none;
+  white-space: nowrap; min-height: 36px;
+}
+.nav-tab.active { background: var(--primary-light); color: var(--primary); }
+
+/* ── MAIN LAYOUT ── */
+#app { display: flex; flex: 1; overflow: hidden; position: relative; }
+
+/* ── SIDEBAR OVERLAY (mobile) ── */
+#sidebar-backdrop {
+  display: none; position: fixed; inset: 0; background: rgba(0,0,0,.4);
+  z-index: 40; -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
+}
+#sidebar-backdrop.show { display: block; }
+
+/* ── SIDEBAR ── */
+#sidebar {
+  width: var(--sidebar-w); background: var(--card); border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; overflow: hidden; flex-shrink: 0;
+  transition: transform .25s ease; z-index: 50;
+}
+#sidebar-header {
+  padding: 10px 12px; border-bottom: 1px solid var(--border);
+  font-size: 11px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: .05em;
+  display: flex; align-items: center; justify-content: space-between;
+}
+#sidebar-close { display: none; background: none; border: none; font-size: 18px; cursor: pointer; color: var(--muted); padding: 0 4px; }
+#day-list { overflow-y: auto; flex: 1; -webkit-overflow-scrolling: touch; }
+.day-item {
+  padding: 11px 12px; cursor: pointer; border-bottom: 1px solid var(--border);
+  display: flex; flex-direction: column; gap: 2px; min-height: 48px;
+}
+.day-item.active { background: var(--primary-light); border-left: 3px solid var(--primary); padding-left: 9px; }
+.day-item .day-num { font-size: 12px; font-weight: 700; color: var(--primary); }
+.day-item .day-date { font-size: 11px; color: var(--muted); }
+.day-item .day-route { font-size: 12px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.day-item .day-price { font-size: 11px; color: var(--success); }
+#sidebar-total {
+  padding: 10px 12px; border-top: 1px solid var(--border);
+  font-size: 12px; color: var(--muted); font-weight: 600;
+  padding-bottom: calc(10px + var(--safe-bottom));
+}
+#sidebar-total span { color: var(--success); font-size: 14px; }
+
+/* ── CONTENT ── */
+#content { flex: 1; overflow-y: auto; padding: 14px; -webkit-overflow-scrolling: touch; }
+
+/* ── WELCOME ── */
+#welcome {
+  max-width: 440px; margin: 40px auto; text-align: center;
+  background: var(--card); border-radius: 16px; padding: 40px 28px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.1);
+}
+#welcome .icon { font-size: 52px; margin-bottom: 14px; }
+#welcome h2 { font-size: 20px; margin-bottom: 8px; }
+#welcome p { color: var(--muted); font-size: 14px; margin-bottom: 24px; line-height: 1.6; }
+.btn-primary {
+  background: var(--primary); color: #fff; border: none; padding: 12px 22px;
+  border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; min-height: 44px;
+}
+.btn-primary:active { background: var(--primary-dark); }
+
+/* ── DAY DETAIL ── */
+.day-header-card {
+  background: var(--card); border-radius: 12px; padding: 14px 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.07); margin-bottom: 14px;
+}
+.day-header-top {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  margin-bottom: 10px; gap: 10px;
+}
+.day-title-block .jour { font-size: 20px; font-weight: 800; color: var(--primary); }
+.day-title-block .date { font-size: 13px; color: var(--muted); margin-top: 1px; }
+.day-actions { display: flex; gap: 6px; }
+.btn-icon {
+  background: var(--bg); border: 1px solid var(--border); color: var(--muted);
+  width: 36px; height: 36px; border-radius: 6px; cursor: pointer; display: flex;
+  align-items: center; justify-content: center; font-size: 16px;
+}
+.route-bar {
+  display: flex; align-items: center; gap: 8px; padding: 9px 12px;
+  background: var(--bg); border-radius: 8px; font-size: 13px; flex-wrap: wrap;
+}
+.route-bar .city { font-weight: 700; }
+.route-bar .arrow { color: var(--muted); }
+.route-bar .drive { color: var(--muted); font-size: 12px; }
+.hotel-bar {
+  display: flex; align-items: center; gap: 8px; padding: 8px 0; flex-wrap: wrap;
+  margin-top: 8px; border-top: 1px solid var(--border);
+}
+.hotel-bar .hotel-icon { font-size: 16px; }
+.hotel-bar .hotel-name { font-size: 13px; font-weight: 500; flex: 1; min-width: 120px; }
+.hotel-bar a { font-size: 12px; color: var(--primary); text-decoration: none; }
+.hotel-bar .price { font-size: 13px; font-weight: 700; color: var(--success); white-space: nowrap; }
+.comments-block {
+  margin-top: 10px; padding: 10px 12px; background: #fffbeb;
+  border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0;
+  font-size: 12px; white-space: pre-wrap; line-height: 1.6; max-height: 110px;
+  overflow-y: auto; -webkit-overflow-scrolling: touch;
+}
+
+/* ── ACTIVITIES ── */
+.activities-header {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;
+}
+.activities-header h3 { font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+.btn-add {
+  background: var(--primary); color: #fff; border: none; padding: 8px 14px;
+  border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; min-height: 38px;
+}
+.btn-add:active { background: var(--primary-dark); }
+.activity-list { display: flex; flex-direction: column; gap: 4px; }
+.activity-item {
+  background: var(--card); border-radius: 8px; padding: 10px 10px;
+  display: flex; align-items: flex-start; gap: 8px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.05); border: 1px solid var(--border);
+}
+.act-time { min-width: 82px; text-align: right; flex-shrink: 0; padding-top: 1px; }
+.act-time .time-range { font-size: 11px; font-weight: 600; color: var(--primary); white-space: nowrap; }
+.act-time .duration { font-size: 11px; color: var(--muted); }
+.act-icon { font-size: 17px; flex-shrink: 0; width: 22px; text-align: center; padding-top: 1px; }
+.act-body { flex: 1; min-width: 0; }
+.act-desc { font-size: 13px; line-height: 1.5; }
+.act-type-badge {
+  display: inline-block; font-size: 11px; color: var(--muted);
+  background: var(--bg); border-radius: 4px; padding: 1px 6px; margin-top: 3px;
+}
+/* Actions: hidden on pointer devices, always visible on touch */
+.act-actions { display: flex; gap: 3px; flex-shrink: 0; opacity: 0; transition: opacity .15s; }
+@media (hover: hover) { .activity-item:hover .act-actions { opacity: 1; } }
+@media (hover: none)  { .act-actions { opacity: 1; } }
+.act-btn {
+  background: var(--bg); border: 1px solid var(--border); color: var(--muted);
+  width: 32px; height: 32px; border-radius: 6px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; font-size: 14px;
+}
+.act-btn:active { background: var(--border); }
+.no-activities {
+  text-align: center; padding: 28px 16px; color: var(--muted); font-size: 14px;
+  background: var(--card); border-radius: 8px; border: 2px dashed var(--border);
+}
+
+/* ── SEARCH VIEW ── */
+#search-view { max-width: 800px; }
+.search-bar { display: flex; gap: 8px; margin-bottom: 14px; }
+.search-bar input {
+  flex: 1; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px;
+  font-size: 16px; /* 16px évite le zoom sur iOS */ outline: none;
+  -webkit-appearance: none; appearance: none;
+}
+.search-bar input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-light); }
+.search-results-info { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.search-day-card {
+  background: var(--card); border-radius: 10px; padding: 12px 14px;
+  margin-bottom: 10px; box-shadow: 0 1px 3px rgba(0,0,0,.07); cursor: pointer;
+  border: 1px solid var(--border);
+}
+.search-day-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+.search-day-header .jour { font-weight: 700; color: var(--primary); font-size: 14px; }
+.search-day-header .date { font-size: 12px; color: var(--muted); }
+.search-day-header .route { font-size: 13px; font-weight: 500; }
+.search-matches { display: flex; flex-direction: column; gap: 4px; }
+.search-match-item { font-size: 12px; padding: 4px 8px; background: var(--bg); border-radius: 4px; }
+.search-match-item mark { background: #fef08a; border-radius: 2px; padding: 0 2px; color: #92400e; }
+.search-no-results { text-align: center; padding: 40px; color: var(--muted); font-size: 15px; }
+
+/* ── STATS VIEW ── */
+#stats-view { max-width: 700px; }
+.stats-card {
+  background: var(--card); border-radius: 12px; padding: 18px 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.07); margin-bottom: 14px;
+}
+.stats-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 14px; }
+.stat-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.stat-icon { font-size: 18px; width: 26px; text-align: center; flex-shrink: 0; }
+.stat-label { font-size: 12px; font-weight: 500; min-width: 110px; flex-shrink: 0; }
+.stat-bar-wrap { flex: 1; background: var(--bg); border-radius: 6px; overflow: hidden; height: 10px; }
+.stat-bar { height: 100%; background: var(--primary); border-radius: 6px; }
+.stat-value { font-size: 12px; font-weight: 700; white-space: nowrap; min-width: 55px; text-align: right; }
+.stats-total { font-size: 13px; color: var(--muted); margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); }
+
+/* ── MODAL ── */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 100;
+  display: flex; align-items: flex-end; justify-content: center;
+  padding: 0; -webkit-overflow-scrolling: touch;
+}
+.modal-overlay.hidden { display: none; }
+.modal {
+  background: var(--card); border-radius: 20px 20px 0 0; padding: 20px 20px calc(20px + var(--safe-bottom));
+  width: 100%; max-width: 560px; box-shadow: 0 -8px 40px rgba(0,0,0,.2);
+  max-height: 92vh; overflow-y: auto; -webkit-overflow-scrolling: touch;
+}
+/* Drag handle indicator */
+.modal::before {
+  content: ''; display: block; width: 36px; height: 4px;
+  background: var(--border); border-radius: 2px; margin: 0 auto 16px;
+}
+.modal h2 { font-size: 17px; font-weight: 700; margin-bottom: 18px; }
+.form-group { margin-bottom: 13px; }
+.form-group label { display: block; font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 5px; }
+.form-group input, .form-group textarea, .form-group select {
+  width: 100%; padding: 11px 13px; border: 1px solid var(--border); border-radius: 10px;
+  font-size: 16px; /* Empêche le zoom iOS */ font-family: inherit; outline: none;
+  background: var(--bg); -webkit-appearance: none; appearance: none; color: var(--text);
+}
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+  border-color: var(--primary); background: #fff; box-shadow: 0 0 0 3px var(--primary-light);
+}
+.form-group textarea { min-height: 80px; resize: vertical; line-height: 1.5; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.duration-preview {
+  margin-top: 5px; font-size: 12px; color: var(--muted);
+  background: var(--bg); padding: 4px 8px; border-radius: 5px; display: inline-block;
+}
+.modal-actions { display: flex; justify-content: stretch; gap: 10px; margin-top: 18px; }
+.btn-cancel {
+  flex: 1; background: var(--bg); border: 1px solid var(--border); color: var(--muted);
+  padding: 13px; border-radius: 10px; font-size: 15px; font-weight: 600; cursor: pointer; min-height: 48px;
+}
+.btn-save {
+  flex: 2; background: var(--primary); color: #fff; border: none;
+  padding: 13px; border-radius: 10px; font-size: 15px; font-weight: 600; cursor: pointer; min-height: 48px;
+}
+.btn-save:active { background: var(--primary-dark); }
+
+/* ── MISC ── */
+.empty-state-full {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  height: 100%; color: var(--muted); gap: 8px;
+}
+.empty-state-full .icon { font-size: 40px; }
+input[type="hidden"] { display: none; }
+
+/* ── MOBILE BREAKPOINT (< 640px) ── */
+@media (max-width: 640px) {
+  #header h1 { font-size: 15px; }
+  #burger { display: flex; }
+  #file-zone { display: none; }   /* caché sur mobile, infos dans la sidebar */
+  #sidebar {
+    position: fixed; left: 0; top: 0; bottom: 0;
+    transform: translateX(-100%); box-shadow: 4px 0 20px rgba(0,0,0,.15);
+    padding-top: var(--safe-top);
+  }
+  #sidebar.open { transform: translateX(0); }
+  #sidebar-close { display: block; }
+  #content { padding: 10px; padding-bottom: calc(10px + var(--safe-bottom)); }
+  .day-header-card { padding: 12px; }
+  .act-time { min-width: 70px; }
+  .form-row { grid-template-columns: 1fr; }
+  .stat-label { min-width: 90px; font-size: 11px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="header">
+  <button id="burger" onclick="toggleSidebar()" aria-label="Menu">☰</button>
+  <h1>🗺️ Travel Planner</h1>
+  <div id="file-zone">
+    <div id="file-info" class="empty" title="Aucun fichier configuré">Aucun fichier configuré</div>
+    <button id="btn-reconnect" onclick="reconnectFile()">🔓 Reconnecter</button>
+  </div>
+  <div id="modified-dot"></div>
+  <button class="hbtn" onclick="configureFile()">⚙️ Configurer</button>
+  <button class="hbtn save" id="btn-save" onclick="saveFile()" disabled>💾 Sauvegarder</button>
+</div>
+
+<!-- NAV -->
+<div id="nav">
+  <button class="nav-tab active" data-view="programme" onclick="setView('programme')">📅 Programme</button>
+  <button class="nav-tab" data-view="recherche" onclick="setView('recherche')">🔍 Recherche</button>
+  <button class="nav-tab" data-view="stats" onclick="setView('stats')">📊 Statistiques</button>
+</div>
+
+<!-- APP -->
+<div id="app">
+
+  <!-- Sidebar backdrop (mobile) -->
+  <div id="sidebar-backdrop" onclick="toggleSidebar()"></div>
+
+  <!-- SIDEBAR -->
+  <div id="sidebar">
+    <div id="sidebar-header">
+      <span>Jours du voyage</span>
+      <button id="sidebar-close" onclick="toggleSidebar()" aria-label="Fermer">✕</button>
+    </div>
+    <div id="day-list">
+      <div class="empty-state-full" style="height:200px">
+        <div class="icon">📋</div>
+        <div style="font-size:13px">Chargez un fichier JSON</div>
+      </div>
+    </div>
+    <div id="sidebar-total" style="display:none">
+      Total hébergement : <span id="total-price">0 $</span>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div id="content">
+
+    <!-- Welcome -->
+    <div id="welcome">
+      <div class="icon">✈️</div>
+      <h2>Travel Planner</h2>
+      <p>Configurez votre fichier source JSON une seule fois. L'application s'y reconnectera automatiquement à chaque ouverture.</p>
+      <button class="btn-primary" onclick="configureFile()">⚙️ Configurer le fichier source</button>
+    </div>
+
+    <!-- Programme View -->
+    <div id="programme-view" style="display:none">
+      <div id="day-detail-container"></div>
+    </div>
+
+    <!-- Search View -->
+    <div id="search-view" style="display:none">
+      <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Rechercher dans tout le programme..." oninput="doSearch()" autocomplete="off">
+        <button class="btn-primary" onclick="doSearch()">Rechercher</button>
+      </div>
+      <div id="search-results"></div>
+    </div>
+
+    <!-- Stats View -->
+    <div id="stats-view" style="display:none">
+      <div id="stats-content"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── ACTIVITY MODAL ── -->
+<div class="modal-overlay hidden" id="act-modal">
+  <div class="modal">
+    <h2 id="act-modal-title">Activité</h2>
+    <div class="form-group">
+      <label>Description</label>
+      <textarea id="act-desc" rows="3" placeholder="Description de l'activité..."></textarea>
+    </div>
+    <div class="form-group">
+      <label>Type d'activité</label>
+      <select id="act-type"></select>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Heure de début</label>
+        <input type="time" id="act-hd" oninput="updateDurationPreview()">
+      </div>
+      <div class="form-group">
+        <label>Heure de fin</label>
+        <input type="time" id="act-hf" oninput="updateDurationPreview()">
+      </div>
+    </div>
+    <div id="duration-preview-wrap" style="margin-top:-8px; margin-bottom:12px;">
+      <div class="duration-preview" id="duration-preview">Durée : —</div>
+    </div>
+    <input type="hidden" id="act-jour">
+    <input type="hidden" id="act-item">
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeActModal()">Annuler</button>
+      <button class="btn-save" onclick="saveActivity()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── GENERAL EDIT MODAL ── -->
+<div class="modal-overlay hidden gen-modal" id="gen-modal">
+  <div class="modal">
+    <h2 id="gen-modal-title">Modifier la journée</h2>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Jour</label>
+        <input type="text" id="gen-jour" readonly style="opacity:.6;">
+      </div>
+      <div class="form-group">
+        <label>Date</label>
+        <input type="text" id="gen-date" placeholder="7/30/26">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Ville de départ</label>
+        <input type="text" id="gen-depart" placeholder="Los Angeles">
+      </div>
+      <div class="form-group">
+        <label>Ville d'arrivée</label>
+        <input type="text" id="gen-arrivee" placeholder="San Francisco">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Temps de route</label>
+        <input type="text" id="gen-route" placeholder="2h30">
+      </div>
+      <div class="form-group">
+        <label>Prix logement ($)</label>
+        <input type="number" id="gen-prix" placeholder="0.00" step="0.01">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Hôtel</label>
+      <input type="text" id="gen-hotel" placeholder="Nom de l'hôtel">
+    </div>
+    <div class="form-group">
+      <label>Lien de réservation (URL)</label>
+      <input type="url" id="gen-lien" placeholder="https://...">
+    </div>
+    <div class="form-group">
+      <label>Commentaires</label>
+      <textarea id="gen-comments" placeholder="Notes, conseils, informations..."></textarea>
+    </div>
+    <input type="hidden" id="gen-idx">
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeGenModal()">Annuler</button>
+      <button class="btn-save" onclick="saveGeneral()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─────────────────────────────────────────────
+// STATE
+// ─────────────────────────────────────────────
+const state = {
+  data: null,
+  fileHandle: null,
+  filePath: null,
+  currentDay: null,
+  view: 'programme',
+  modified: false,
+};
+
+const ACTIVITY_TYPES = [
+  { icon: '', label: 'Aucun type' },
+  { icon: '✈️', label: 'Avion' },
+  { icon: '🚗', label: 'Trajet en voiture' },
+  { icon: '📍', label: 'Visite / Tourisme' },
+  { icon: '🍽️', label: 'Repas' },
+  { icon: '🛏️', label: 'Nuit / Hébergement' },
+  { icon: '🎢', label: 'Loisirs / Parc' },
+  { icon: '🧺', label: 'Pique-nique' },
+  { icon: '🥾', label: 'Randonnée' },
+  { icon: '🏊', label: 'Piscine / Plage' },
+  { icon: '🛒', label: 'Shopping' },
+  { icon: '🎭', label: 'Spectacle' },
+  { icon: '🏨', label: 'Check-in / Check-out' },
+  { icon: '📷', label: 'Photos' },
+  { icon: '🚢', label: 'Bateau / Croisière' },
+  { icon: '🎡', label: 'Activité famille' },
+  { icon: '💬', label: 'Autre' },
+];
+
+// Populate type select
+function buildTypeSelect() {
+  const sel = document.getElementById('act-type');
+  sel.innerHTML = '';
+  ACTIVITY_TYPES.forEach(t => {
+    const opt = document.createElement('option');
+    opt.value = t.icon;
+    opt.textContent = t.icon ? `${t.icon} ${t.label}` : `— ${t.label}`;
+    sel.appendChild(opt);
+  });
+}
+buildTypeSelect();
+
+// ─────────────────────────────────────────────
+// DÉTECTION CAPACITÉS NAVIGATEUR
+// ─────────────────────────────────────────────
+const HAS_FSA = typeof window.showOpenFilePicker === 'function'; // File System Access API (Chrome/Edge)
+const LS_DATA_KEY = 'travelplanner_data';
+const LS_NAME_KEY = 'travelplanner_filename';
+
+// ─────────────────────────────────────────────
+// INDEXEDDB — persistance du handle (Chrome/Edge uniquement)
+// ─────────────────────────────────────────────
+const IDB_NAME = 'TravelPlannerDB';
+const IDB_STORE = 'settings';
+
+function openIDB() {
+  return new Promise((resolve, reject) => {
+    const req = indexedDB.open(IDB_NAME, 1);
+    req.onupgradeneeded = e => e.target.result.createObjectStore(IDB_STORE);
+    req.onsuccess = e => resolve(e.target.result);
+    req.onerror = e => reject(e.target.error);
+  });
+}
+async function idbGet(key) {
+  const db = await openIDB();
+  return new Promise((resolve, reject) => {
+    const req = db.transaction(IDB_STORE, 'readonly').objectStore(IDB_STORE).get(key);
+    req.onsuccess = e => resolve(e.target.result);
+    req.onerror = () => resolve(null);
+  });
+}
+async function idbSet(key, val) {
+  try {
+    const db = await openIDB();
+    return new Promise((resolve, reject) => {
+      const req = db.transaction(IDB_STORE, 'readwrite').objectStore(IDB_STORE).put(val, key);
+      req.onsuccess = () => resolve();
+      req.onerror = e => reject(e.target.error);
+    });
+  } catch(e) { /* IDB non dispo, silencieux */ }
+}
+async function idbDel(key) {
+  try {
+    const db = await openIDB();
+    return new Promise((resolve) => {
+      db.transaction(IDB_STORE, 'readwrite').objectStore(IDB_STORE).delete(key);
+      resolve();
+    });
+  } catch(e) {}
+}
+
+// ─────────────────────────────────────────────
+// SIDEBAR MOBILE
+// ─────────────────────────────────────────────
+function toggleSidebar() {
+  const sb = document.getElementById('sidebar');
+  const bd = document.getElementById('sidebar-backdrop');
+  const open = sb.classList.toggle('open');
+  bd.classList.toggle('show', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+function closeSidebarIfMobile() {
+  if (window.innerWidth <= 640) toggleSidebar();
+}
+
+// ─────────────────────────────────────────────
+// FILE OPERATIONS
+// ─────────────────────────────────────────────
+
+async function init() {
+  if (HAS_FSA) {
+    // Chrome / Edge : restauration via FileSystemFileHandle en IDB
+    try {
+      const handle = await idbGet('fileHandle');
+      if (!handle) { showView(state.view); return; }
+      state.fileHandle = handle;
+      const file = await handle.getFile();
+      state.filePath = file.name;
+      const perm = await handle.queryPermission({ mode: 'readwrite' });
+      if (perm === 'granted') {
+        await loadFromHandle(handle);
+      } else {
+        updateFileInfo('pending');
+        showView(state.view);
+      }
+    } catch (err) {
+      await idbDel('fileHandle');
+      state.fileHandle = null; state.filePath = null;
+      // Tenter le cache localStorage en dernier recours
+      tryRestoreFromCache();
+    }
+  } else {
+    // Safari / Firefox : restauration depuis le cache localStorage
+    tryRestoreFromCache();
+  }
+}
+
+function tryRestoreFromCache() {
+  try {
+    const cached = localStorage.getItem(LS_DATA_KEY);
+    const name   = localStorage.getItem(LS_NAME_KEY);
+    if (cached) {
+      state.filePath = name || 'programme.json';
+      parseAndLoad(cached, /*fromCache=*/true);
+      return;
+    }
+  } catch(e) {}
+  updateFileInfo('none');
+  showView(state.view);
+}
+
+// Configurer le fichier source (⚙️ Configurer)
+async function configureFile() {
+  if (HAS_FSA) {
+    try {
+      const [handle] = await window.showOpenFilePicker({
+        types: [{ description: 'JSON', accept: { 'application/json': ['.json'] } }],
+      });
+      state.fileHandle = handle;
+      const file = await handle.getFile();
+      state.filePath = file.name;
+      await idbSet('fileHandle', handle);
+      await loadFromHandle(handle);
+    } catch (err) {
+      if (err.name !== 'AbortError') alert('Erreur : ' + err.message);
+    }
+  } else {
+    // Safari / Firefox : sélecteur classique, cache localStorage
+    pickFileWithInput();
+  }
+}
+
+// Bouton Reconnecter (Chrome/Edge, session suivante)
+async function reconnectFile() {
+  if (!state.fileHandle) return;
+  try {
+    const perm = await state.fileHandle.requestPermission({ mode: 'readwrite' });
+    if (perm === 'granted') await loadFromHandle(state.fileHandle);
+  } catch (err) {
+    alert('Erreur de reconnexion : ' + err.message);
+  }
+}
+
+async function loadFromHandle(handle) {
+  const file = await handle.getFile();
+  const text = await file.text();
+  parseAndLoad(text);
+}
+
+function pickFileWithInput() {
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = '.json,application/json';
+  input.onchange = async e => {
+    const file = e.target.files[0];
+    if (!file) return;
+    state.filePath = file.name;
+    state.fileHandle = null;
+    const text = await file.text();
+    parseAndLoad(text);
+  };
+  input.click();
+}
+
+function parseAndLoad(text, fromCache = false) {
+  try {
+    const data = JSON.parse(text);
+    if (!data.GeneralProgram || !data.DayProgram) {
+      throw new Error('Structure JSON invalide (GeneralProgram et DayProgram attendus)');
+    }
+    state.data = data;
+    state.modified = false;
+    // Mettre à jour le cache localStorage à chaque chargement
+    try {
+      localStorage.setItem(LS_DATA_KEY, text);
+      localStorage.setItem(LS_NAME_KEY, state.filePath || 'programme.json');
+    } catch(e) {}
+    updateFileInfo(fromCache ? 'cache' : 'loaded');
+    renderSidebar();
+    if (!state.currentDay && data.GeneralProgram.length > 0) {
+      state.currentDay = data.GeneralProgram[0].Jour;
+    }
+    showView(state.view);
+    if (fromCache) showToast('📱 Données restaurées depuis la dernière session');
+  } catch (err) {
+    alert('Erreur de parsing JSON : ' + err.message);
+  }
+}
+
+async function saveFile() {
+  if (!state.data) return;
+  const json = JSON.stringify(state.data, null, 2);
+
+  // Toujours mettre à jour le cache localStorage
+  try {
+    localStorage.setItem(LS_DATA_KEY, json);
+    localStorage.setItem(LS_NAME_KEY, state.filePath || 'programme.json');
+  } catch(e) {}
+
+  try {
+    if (state.fileHandle) {
+      // Chrome/Edge : écriture directe dans le fichier source
+      let perm = await state.fileHandle.queryPermission({ mode: 'readwrite' });
+      if (perm !== 'granted') perm = await state.fileHandle.requestPermission({ mode: 'readwrite' });
+      if (perm !== 'granted') { showToast('⛔ Permission refusée'); return; }
+      const writable = await state.fileHandle.createWritable();
+      await writable.write(json);
+      await writable.close();
+      state.modified = false;
+      updateModifiedDot();
+      updateFileInfo('loaded');
+      showToast('✅ Fichier sauvegardé — ' + state.filePath);
+    } else {
+      // Safari / Firefox : téléchargement du fichier mis à jour
+      const blob = new Blob([json], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = state.filePath || 'travel-program.json';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      state.modified = false;
+      updateModifiedDot();
+      showToast('✅ Fichier téléchargé — remplacez l\'original pour mettre à jour');
+    }
+  } catch (err) {
+    if (err.name !== 'AbortError') alert('Erreur de sauvegarde : ' + err.message);
+  }
+}
+
+function markModified() {
+  state.modified = true;
+  updateModifiedDot();
+  document.getElementById('btn-save').disabled = false;
+}
+
+function updateModifiedDot() {
+  document.getElementById('modified-dot').classList.toggle('show', state.modified);
+  document.getElementById('btn-save').disabled = !state.modified;
+}
+
+// status : 'none' | 'pending' | 'loaded' | 'cache' | 'unsupported'
+function updateFileInfo(status) {
+  const el = document.getElementById('file-info');
+  const btnR = document.getElementById('btn-reconnect');
+  el.className = '';
+  btnR.style.display = 'none';
+
+  if (status === 'loaded') {
+    el.textContent = '✅ ' + (state.filePath || 'fichier chargé');
+    el.classList.add('ok');
+    el.title = state.filePath || '';
+  } else if (status === 'cache') {
+    el.textContent = '📱 ' + (state.filePath || 'programme.json') + ' (cache)';
+    el.classList.add('fallback');
+    el.title = 'Données restaurées depuis la dernière session. Sauvegarde par téléchargement.';
+  } else if (status === 'pending') {
+    el.textContent = '⚠️ ' + (state.filePath || 'fichier configuré') + ' — touchez pour accéder';
+    el.classList.add('warn');
+    btnR.style.display = 'inline-block';
+  } else {
+    el.textContent = 'Aucun fichier configuré';
+    el.classList.add('empty');
+  }
+}
+
+// Démarrage
+init();
+
+// ─────────────────────────────────────────────
+// VIEW MANAGEMENT
+// ─────────────────────────────────────────────
+function setView(v) {
+  state.view = v;
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.toggle('active', t.dataset.view === v));
+  showView(v);
+}
+
+function showView(v) {
+  document.getElementById('welcome').style.display = 'none';
+  document.getElementById('programme-view').style.display = 'none';
+  document.getElementById('search-view').style.display = 'none';
+  document.getElementById('stats-view').style.display = 'none';
+
+  if (!state.data) {
+    document.getElementById('welcome').style.display = 'block';
+    return;
+  }
+
+  if (v === 'programme') {
+    document.getElementById('programme-view').style.display = 'block';
+    renderProgramme();
+  } else if (v === 'recherche') {
+    document.getElementById('search-view').style.display = 'block';
+    document.getElementById('search-input').focus();
+    doSearch();
+  } else if (v === 'stats') {
+    document.getElementById('stats-view').style.display = 'block';
+    renderStats();
+  }
+}
+
+// ─────────────────────────────────────────────
+// SIDEBAR
+// ─────────────────────────────────────────────
+function renderSidebar() {
+  const list = document.getElementById('day-list');
+  if (!state.data) { list.innerHTML = ''; return; }
+
+  let totalPrice = 0;
+  list.innerHTML = state.data.GeneralProgram.map(day => {
+    const price = day[' prix logement '] || day['prix logement'] || 0;
+    totalPrice += price;
+    const depart = day['Départ'] || '';
+    const arrivee = day['Arrivée'] || '';
+    const route = depart === arrivee ? arrivee : (depart && arrivee ? `${depart} → ${arrivee}` : (arrivee || depart));
+    const isActive = day.Jour === state.currentDay;
+    return `<div class="day-item${isActive ? ' active' : ''}" onclick="selectDay('${escHtml(day.Jour)}')">
+      <div class="day-num">${escHtml(day.Jour)}</div>
+      <div class="day-date">${formatDate(day.date)}</div>
+      <div class="day-route">${escHtml(route)}</div>
+      ${price > 0 ? `<div class="day-price">${price.toFixed(2)} $</div>` : ''}
+    </div>`;
+  }).join('');
+
+  const totalEl = document.getElementById('sidebar-total');
+  totalEl.style.display = 'block';
+  document.getElementById('total-price').textContent = totalPrice.toFixed(2) + ' $';
+}
+
+function selectDay(jour) {
+  state.currentDay = jour;
+  document.querySelectorAll('.day-item').forEach(el => {
+    el.classList.toggle('active', el.querySelector('.day-num')?.textContent === jour);
+  });
+  if (state.view === 'programme') renderProgramme();
+  closeSidebarIfMobile();
+}
+
+// ─────────────────────────────────────────────
+// PROGRAMME VIEW
+// ─────────────────────────────────────────────
+function renderProgramme() {
+  if (!state.data || !state.currentDay) return;
+  const dayGen = state.data.GeneralProgram.find(d => d.Jour === state.currentDay);
+  const dayActs = state.data.DayProgram.filter(a => a.Jour === state.currentDay)
+    .sort((a, b) => (a.Item || 0) - (b.Item || 0));
+
+  const container = document.getElementById('day-detail-container');
+  container.innerHTML = renderDayDetail(dayGen, dayActs);
+}
+
+function renderDayDetail(dayGen, dayActs) {
+  if (!dayGen) return '<div class="no-activities">Journée introuvable</div>';
+  const jour = dayGen.Jour;
+  const depart = dayGen['Départ'] || '';
+  const arrivee = dayGen['Arrivée'] || '';
+  const hotel = dayGen.hotel || '';
+  const lien = dayGen.lienHotel || '';
+  const prix = dayGen[' prix logement '] || dayGen['prix logement'] || 0;
+  const comments = dayGen.commentaires || '';
+  const tempsRoute = dayGen['Temps de route'] || '';
+  const genIdx = state.data.GeneralProgram.findIndex(d => d.Jour === jour);
+
+  let routeHtml = '';
+  if (depart || arrivee) {
+    routeHtml = `<div class="route-bar">
+      ${depart ? `<span class="city">📍 ${escHtml(depart)}</span>` : ''}
+      ${depart && arrivee ? '<span class="arrow">→</span>' : ''}
+      ${arrivee ? `<span class="city">🏁 ${escHtml(arrivee)}</span>` : ''}
+      ${tempsRoute ? `<span class="drive">🚗 ${escHtml(tempsRoute)}</span>` : ''}
+    </div>`;
+  }
+
+  let hotelHtml = '';
+  if (hotel) {
+    hotelHtml = `<div class="hotel-bar">
+      <span class="hotel-icon">🏨</span>
+      <span class="hotel-name">${escHtml(hotel)}</span>
+      ${lien ? `<a href="${escHtml(lien)}" target="_blank" rel="noopener">🔗 Réservation</a>` : ''}
+      ${prix > 0 ? `<span class="price">${prix.toFixed(2)} $</span>` : ''}
+    </div>`;
+  }
+
+  let commentsHtml = '';
+  if (comments) {
+    commentsHtml = `<div class="comments-block">${escHtml(comments)}</div>`;
+  }
+
+  const actsHtml = dayActs.length === 0
+    ? `<div class="no-activities">Aucune activité planifiée.<br>Cliquez sur "+ Ajouter" pour commencer.</div>`
+    : `<div class="activity-list">${dayActs.map(a => renderActivity(a)).join('')}</div>`;
+
+  return `<div class="day-detail">
+    <div class="day-header-card">
+      <div class="day-header-top">
+        <div class="day-title-block">
+          <div class="jour">${escHtml(jour)}</div>
+          <div class="date">${formatDateFull(dayGen.date)}</div>
+        </div>
+        <div class="day-actions">
+          <button class="btn-icon" onclick="openGenModal(${genIdx})" title="Modifier les infos de la journée">✏️</button>
+        </div>
+      </div>
+      ${routeHtml}
+      ${hotelHtml}
+      ${commentsHtml}
+    </div>
+    <div class="activities-section">
+      <div class="activities-header">
+        <h3>Activités du jour</h3>
+        <button class="btn-add" onclick="openActModal('${escHtml(jour)}')">＋ Ajouter</button>
+      </div>
+      ${actsHtml}
+    </div>
+  </div>`;
+}
+
+function renderActivity(act) {
+  const hd = act.HeureD || '';
+  const hf = act.HeureF || '';
+  const icon = act.Icone || '';
+  const desc = act.Description || '';
+  const jour = act.Jour;
+  const item = act.Item;
+
+  let timeHtml = '';
+  if (hd || hf) {
+    const dur = computeDurFromTimes(hd, hf);
+    timeHtml = `<div class="act-time">
+      <div class="time-range">${hd || '?'}${hf ? ' – ' + hf : ''}</div>
+      ${dur > 0 ? `<div class="duration">${formatDur(dur)}</div>` : ''}
+    </div>`;
+  } else {
+    const durRaw = act.Durée || '';
+    const durMin = parseDur(durRaw);
+    timeHtml = `<div class="act-time">
+      <div class="time-range" style="color:var(--muted)">—</div>
+      ${durMin > 0 ? `<div class="duration">${formatDur(durMin)}</div>` : ''}
+    </div>`;
+  }
+
+  const typeLabel = getTypeLabel(icon);
+
+  return `<div class="activity-item" data-jour="${escHtml(jour)}" data-item="${item}">
+    ${timeHtml}
+    <div class="act-icon">${icon || '•'}</div>
+    <div class="act-body">
+      <div class="act-desc">${escHtml(desc)}</div>
+      ${typeLabel ? `<span class="act-type-badge">${escHtml(typeLabel)}</span>` : ''}
+    </div>
+    <div class="act-actions">
+      <button class="act-btn up" onclick="moveActivity('${escHtml(jour)}', ${item}, -1)" title="Monter">↑</button>
+      <button class="act-btn down" onclick="moveActivity('${escHtml(jour)}', ${item}, 1)" title="Descendre">↓</button>
+      <button class="act-btn" onclick="openActModal('${escHtml(jour)}', ${item})" title="Modifier">✏️</button>
+      <button class="act-btn del" onclick="deleteActivity('${escHtml(jour)}', ${item})" title="Supprimer">🗑</button>
+    </div>
+  </div>`;
+}
+
+// ─────────────────────────────────────────────
+// GENERAL EDIT MODAL
+// ─────────────────────────────────────────────
+function openGenModal(idx) {
+  const day = state.data.GeneralProgram[idx];
+  if (!day) return;
+  document.getElementById('gen-modal-title').textContent = `Modifier – ${day.Jour}`;
+  document.getElementById('gen-jour').value = day.Jour;
+  document.getElementById('gen-date').value = day.date || '';
+  document.getElementById('gen-depart').value = day['Départ'] || '';
+  document.getElementById('gen-arrivee').value = day['Arrivée'] || '';
+  document.getElementById('gen-route').value = day['Temps de route'] || '';
+  document.getElementById('gen-hotel').value = day.hotel || '';
+  document.getElementById('gen-lien').value = day.lienHotel || '';
+  document.getElementById('gen-prix').value = day[' prix logement '] || day['prix logement'] || '';
+  document.getElementById('gen-comments').value = day.commentaires || '';
+  document.getElementById('gen-idx').value = idx;
+  document.getElementById('gen-modal').classList.remove('hidden');
+}
+
+function closeGenModal() {
+  document.getElementById('gen-modal').classList.add('hidden');
+}
+
+function saveGeneral() {
+  const idx = parseInt(document.getElementById('gen-idx').value);
+  const day = state.data.GeneralProgram[idx];
+  if (!day) return;
+
+  day.date = document.getElementById('gen-date').value.trim();
+  day['Départ'] = document.getElementById('gen-depart').value.trim();
+  day['Arrivée'] = document.getElementById('gen-arrivee').value.trim();
+  day['Temps de route'] = document.getElementById('gen-route').value.trim();
+  day.hotel = document.getElementById('gen-hotel').value.trim();
+  day.lienHotel = document.getElementById('gen-lien').value.trim();
+  const prixVal = parseFloat(document.getElementById('gen-prix').value);
+  day[' prix logement '] = isNaN(prixVal) ? 0 : prixVal;
+  const comments = document.getElementById('gen-comments').value.trim();
+  if (comments) day.commentaires = comments;
+  else delete day.commentaires;
+
+  // Clean empty fields
+  if (!day['Départ']) delete day['Départ'];
+  if (!day['Arrivée']) delete day['Arrivée'];
+  if (!day['Temps de route']) delete day['Temps de route'];
+  if (!day.lienHotel) delete day.lienHotel;
+
+  closeGenModal();
+  markModified();
+  renderSidebar();
+  renderProgramme();
+}
+
+// ─────────────────────────────────────────────
+// ACTIVITY MODAL
+// ─────────────────────────────────────────────
+function openActModal(jour, item) {
+  const isEdit = item !== undefined;
+  document.getElementById('act-modal-title').textContent = isEdit ? 'Modifier l\'activité' : 'Nouvelle activité';
+  document.getElementById('act-jour').value = jour;
+  document.getElementById('act-item').value = isEdit ? item : '';
+
+  if (isEdit) {
+    const act = state.data.DayProgram.find(a => a.Jour === jour && a.Item === item);
+    if (!act) return;
+    document.getElementById('act-desc').value = act.Description || '';
+    document.getElementById('act-type').value = act.Icone || '';
+    document.getElementById('act-hd').value = normalizeTime(act.HeureD || '');
+    document.getElementById('act-hf').value = normalizeTime(act.HeureF || '');
+  } else {
+    document.getElementById('act-desc').value = '';
+    document.getElementById('act-type').value = '';
+    document.getElementById('act-hd').value = '';
+    document.getElementById('act-hf').value = '';
+  }
+  updateDurationPreview();
+  document.getElementById('act-modal').classList.remove('hidden');
+  document.getElementById('act-desc').focus();
+}
+
+function closeActModal() {
+  document.getElementById('act-modal').classList.add('hidden');
+}
+
+function normalizeTime(t) {
+  if (!t) return '';
+  // Handle "8:15" → "08:15"
+  const parts = t.split(':');
+  if (parts.length === 2) {
+    return parts[0].padStart(2, '0') + ':' + parts[1].padStart(2, '0');
+  }
+  return t;
+}
+
+function updateDurationPreview() {
+  const hd = document.getElementById('act-hd').value;
+  const hf = document.getElementById('act-hf').value;
+  const dur = computeDurFromTimes(hd, hf);
+  const el = document.getElementById('duration-preview');
+  el.textContent = dur > 0 ? `Durée calculée : ${formatDur(dur)}` : (hd && hf ? 'Durée : 0 min' : 'Durée : — (aucune heure saisie)');
+}
+
+function saveActivity() {
+  const jour = document.getElementById('act-jour').value;
+  const itemVal = document.getElementById('act-item').value;
+  const isEdit = itemVal !== '';
+  const desc = document.getElementById('act-desc').value.trim();
+  const type = document.getElementById('act-type').value;
+  const hd = document.getElementById('act-hd').value;
+  const hf = document.getElementById('act-hf').value;
+
+  if (!desc) { alert('La description est obligatoire.'); return; }
+
+  const durMin = computeDurFromTimes(hd, hf);
+  const durStr = durMin > 0 ? `${Math.floor(durMin/60)}:${(durMin%60).toString().padStart(2,'0')}` : '0:00';
+
+  if (isEdit) {
+    const item = parseInt(itemVal);
+    const act = state.data.DayProgram.find(a => a.Jour === jour && a.Item === item);
+    if (!act) return;
+    act.Description = desc;
+    act.Icone = type || undefined;
+    if (!act.Icone) delete act.Icone;
+    if (hd) act.HeureD = hd.replace(/^0/, '').replace(':0', ':0'); // keep compact
+    else delete act.HeureD;
+    if (hf) act.HeureF = hf.replace(/^0/, '').replace(':0', ':0');
+    else delete act.HeureF;
+    act.Durée = durStr;
+  } else {
+    const dayActs = state.data.DayProgram.filter(a => a.Jour === jour);
+    const maxItem = dayActs.reduce((m, a) => Math.max(m, a.Item || 0), 0);
+    const newAct = {
+      Jour: jour,
+      Item: maxItem + 1,
+      Description: desc,
+      Durée: durStr,
+    };
+    if (type) newAct.Icone = type;
+    if (hd) newAct.HeureD = hd;
+    if (hf) newAct.HeureF = hf;
+    state.data.DayProgram.push(newAct);
+  }
+
+  closeActModal();
+  markModified();
+  renderProgramme();
+}
+
+function deleteActivity(jour, item) {
+  if (!confirm('Supprimer cette activité ?')) return;
+  const idx = state.data.DayProgram.findIndex(a => a.Jour === jour && a.Item === item);
+  if (idx === -1) return;
+  state.data.DayProgram.splice(idx, 1);
+  // Re-number items for the day
+  renumberItems(jour);
+  markModified();
+  renderProgramme();
+}
+
+function moveActivity(jour, item, dir) {
+  const dayActs = state.data.DayProgram
+    .filter(a => a.Jour === jour)
+    .sort((a, b) => a.Item - b.Item);
+  const idx = dayActs.findIndex(a => a.Item === item);
+  if (idx === -1) return;
+  const targetIdx = idx + dir;
+  if (targetIdx < 0 || targetIdx >= dayActs.length) return;
+
+  // Swap items
+  const tmp = dayActs[idx].Item;
+  dayActs[idx].Item = dayActs[targetIdx].Item;
+  dayActs[targetIdx].Item = tmp;
+
+  markModified();
+  renderProgramme();
+}
+
+function renumberItems(jour) {
+  const dayActs = state.data.DayProgram
+    .filter(a => a.Jour === jour)
+    .sort((a, b) => a.Item - b.Item);
+  dayActs.forEach((a, i) => { a.Item = i + 1; });
+}
+
+// ─────────────────────────────────────────────
+// SEARCH VIEW
+// ─────────────────────────────────────────────
+function doSearch() {
+  const q = document.getElementById('search-input').value.trim().toLowerCase();
+  const container = document.getElementById('search-results');
+
+  if (!state.data) { container.innerHTML = ''; return; }
+  if (!q) {
+    container.innerHTML = '<div class="search-results-info">Saisissez un mot-clé pour lancer la recherche.</div>';
+    return;
+  }
+
+  const results = [];
+  state.data.GeneralProgram.forEach(day => {
+    const matches = [];
+    // Search in general fields
+    const genFields = [
+      { label: 'Ville départ', val: day['Départ'] },
+      { label: 'Ville arrivée', val: day['Arrivée'] },
+      { label: 'Hôtel', val: day.hotel },
+      { label: 'Commentaires', val: day.commentaires },
+    ];
+    genFields.forEach(f => {
+      if (f.val && f.val.toLowerCase().includes(q)) {
+        const snippet = highlightSnippet(f.val, q, 80);
+        matches.push(`<b>${escHtml(f.label)}</b> : ${snippet}`);
+      }
+    });
+    // Search in day activities
+    const acts = state.data.DayProgram.filter(a => a.Jour === day.Jour);
+    acts.forEach(act => {
+      if (act.Description && act.Description.toLowerCase().includes(q)) {
+        const snippet = highlightSnippet(act.Description, q, 80);
+        matches.push(`Activité ${act.Item} : ${snippet}`);
+      }
+    });
+    if (matches.length > 0) {
+      results.push({ day, matches });
+    }
+  });
+
+  if (results.length === 0) {
+    container.innerHTML = `<div class="search-no-results">🔍 Aucun résultat pour "<b>${escHtml(q)}</b>"</div>`;
+    return;
+  }
+
+  container.innerHTML = `<div class="search-results-info">${results.length} journée${results.length > 1 ? 's' : ''} trouvée${results.length > 1 ? 's' : ''} pour "<b>${escHtml(q)}</b>"</div>` +
+    results.map(r => {
+      const day = r.day;
+      const depart = day['Départ'] || '';
+      const arrivee = day['Arrivée'] || '';
+      const route = depart === arrivee ? arrivee : (depart && arrivee ? `${depart} → ${arrivee}` : (arrivee || depart));
+      return `<div class="search-day-card" onclick="goToDay('${escHtml(day.Jour)}')">
+        <div class="search-day-header">
+          <span class="jour">${escHtml(day.Jour)}</span>
+          <span class="date">${formatDateFull(day.date)}</span>
+          <span class="route">${escHtml(route)}</span>
+        </div>
+        <div class="search-matches">
+          ${r.matches.map(m => `<div class="search-match-item">${m}</div>`).join('')}
+        </div>
+      </div>`;
+    }).join('');
+}
+
+function goToDay(jour) {
+  state.currentDay = jour;
+  setView('programme');
+  renderSidebar();
+  closeSidebarIfMobile();
+}
+
+function highlightSnippet(text, q, maxLen) {
+  const lc = text.toLowerCase();
+  const pos = lc.indexOf(q);
+  let start = Math.max(0, pos - 30);
+  let end = Math.min(text.length, pos + q.length + 50);
+  let snippet = (start > 0 ? '…' : '') + text.substring(start, end) + (end < text.length ? '…' : '');
+  return escHtml(snippet).replace(new RegExp(escRegex(escHtml(q)), 'gi'), m => `<mark>${m}</mark>`);
+}
+
+// ─────────────────────────────────────────────
+// STATS VIEW
+// ─────────────────────────────────────────────
+function renderStats() {
+  const container = document.getElementById('stats-content');
+  if (!state.data) { container.innerHTML = ''; return; }
+
+  // Aggregate duration by type
+  const byType = {};
+  let totalMin = 0;
+
+  state.data.DayProgram.forEach(act => {
+    const icon = act.Icone || '';
+    let durMin = 0;
+    if (act.HeureD && act.HeureF) {
+      durMin = computeDurFromTimes(act.HeureD, act.HeureF);
+    } else if (act.Durée) {
+      durMin = parseDur(act.Durée);
+    }
+    if (!byType[icon]) byType[icon] = 0;
+    byType[icon] += durMin;
+    totalMin += durMin;
+  });
+
+  const sorted = Object.entries(byType).sort((a, b) => b[1] - a[1]);
+  const maxMin = sorted.length > 0 ? sorted[0][1] : 1;
+
+  const rows = sorted.map(([icon, mins]) => {
+    const pct = maxMin > 0 ? (mins / maxMin * 100).toFixed(1) : 0;
+    const label = getTypeLabel(icon) || (icon || 'Sans type');
+    const display = icon ? `${icon} ${label}` : label;
+    const colors = getTypeColor(icon);
+    return `<div class="stat-row">
+      <div class="stat-icon">${icon || '•'}</div>
+      <div class="stat-label">${escHtml(display)}</div>
+      <div class="stat-bar-wrap">
+        <div class="stat-bar" style="width:${pct}%; background:${colors.bar};"></div>
+      </div>
+      <div class="stat-value">${formatDurLong(mins)}</div>
+    </div>`;
+  }).join('');
+
+  // Budget summary
+  let totalBudget = 0;
+  state.data.GeneralProgram.forEach(d => {
+    totalBudget += d[' prix logement '] || d['prix logement'] || 0;
+  });
+
+  // Count activities by day
+  const actsByDay = {};
+  state.data.DayProgram.forEach(a => {
+    actsByDay[a.Jour] = (actsByDay[a.Jour] || 0) + 1;
+  });
+  const avgActs = state.data.GeneralProgram.length > 0
+    ? (state.data.DayProgram.length / state.data.GeneralProgram.length).toFixed(1)
+    : 0;
+
+  container.innerHTML = `
+    <div class="stats-card">
+      <h3>⏱ Durée par type d'activité</h3>
+      ${rows || '<div style="color:var(--muted);font-size:14px">Aucune donnée</div>'}
+      <div class="stats-total">Total activités planifiées : <b>${formatDurLong(totalMin)}</b></div>
+    </div>
+    <div class="stats-card">
+      <h3>📊 Récapitulatif du voyage</h3>
+      <div class="stat-row">
+        <div class="stat-icon">📅</div>
+        <div class="stat-label">Durée du voyage</div>
+        <div style="flex:1"></div>
+        <div class="stat-value">${state.data.GeneralProgram.length} jours</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-icon">📋</div>
+        <div class="stat-label">Nb total d'activités</div>
+        <div style="flex:1"></div>
+        <div class="stat-value">${state.data.DayProgram.length}</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-icon">📈</div>
+        <div class="stat-label">Moy. activités / jour</div>
+        <div style="flex:1"></div>
+        <div class="stat-value">${avgActs}</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-icon">💰</div>
+        <div class="stat-label">Budget hébergement</div>
+        <div style="flex:1"></div>
+        <div class="stat-value" style="color:var(--success)">${totalBudget.toFixed(2)} $</div>
+      </div>
+    </div>`;
+}
+
+function getTypeColor(icon) {
+  const map = {
+    '🚗': '#3b82f6', '✈️': '#8b5cf6', '📍': '#10b981', '🍽️': '#f59e0b',
+    '🛏️': '#6366f1', '🎢': '#ec4899', '🧺': '#84cc16', '🥾': '#14b8a6',
+    '🏊': '#06b6d4', '🛒': '#f97316', '🎭': '#a855f7', '🏨': '#64748b',
+  };
+  return { bar: map[icon] || '#2563eb' };
+}
+
+// ─────────────────────────────────────────────
+// HELPERS
+// ─────────────────────────────────────────────
+function computeDurFromTimes(hd, hf) {
+  if (!hd || !hf) return 0;
+  const [dh, dm] = hd.split(':').map(Number);
+  const [fh, fm] = hf.split(':').map(Number);
+  if (isNaN(dh) || isNaN(dm) || isNaN(fh) || isNaN(fm)) return 0;
+  const diff = (fh * 60 + fm) - (dh * 60 + dm);
+  return diff > 0 ? diff : 0;
+}
+
+function parseDur(s) {
+  if (!s) return 0;
+  const parts = s.toString().split(':');
+  if (parts.length !== 2) return 0;
+  const h = parseInt(parts[0]);
+  const m = parseInt(parts[1]);
+  if (isNaN(h) || isNaN(m)) return 0;
+  return h * 60 + m;
+}
+
+function formatDur(min) {
+  if (!min) return '0 min';
+  const h = Math.floor(min / 60);
+  const m = min % 60;
+  if (h === 0) return `${m} min`;
+  if (m === 0) return `${h}h`;
+  return `${h}h${m.toString().padStart(2, '0')}`;
+}
+
+function formatDurLong(min) {
+  if (!min || min === 0) return '0 min';
+  const h = Math.floor(min / 60);
+  const m = min % 60;
+  if (h === 0) return `${m} min`;
+  if (m === 0) return `${h} h 00`;
+  return `${h} h ${m.toString().padStart(2, '0')}`;
+}
+
+function formatDate(d) {
+  if (!d) return '';
+  // e.g. "7/30/26" → "30/07/26"
+  try {
+    const parts = d.split('/');
+    if (parts.length === 3) return `${parts[1].padStart(2,'0')}/${parts[0].padStart(2,'0')}/${parts[2]}`;
+  } catch(e) {}
+  return d;
+}
+
+function formatDateFull(d) {
+  if (!d) return '';
+  try {
+    const parts = d.split('/');
+    if (parts.length === 3) {
+      const months = ['jan','fév','mar','avr','mai','jun','jul','aoû','sep','oct','nov','déc'];
+      const m = parseInt(parts[0]) - 1;
+      const day = parseInt(parts[1]);
+      const y = parseInt(parts[2]);
+      const year = y < 100 ? 2000 + y : y;
+      return `${day} ${months[m] || ''} ${year}`;
+    }
+  } catch(e) {}
+  return d;
+}
+
+function getTypeLabel(icon) {
+  const t = ACTIVITY_TYPES.find(t => t.icon === icon);
+  return t && t.icon ? t.label : '';
+}
+
+function escHtml(str) {
+  if (!str) return '';
+  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function escRegex(str) {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+// ─────────────────────────────────────────────
+// TOAST
+// ─────────────────────────────────────────────
+let toastTimer = null;
+function showToast(msg) {
+  let el = document.getElementById('toast');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'toast';
+    el.style.cssText = `
+      position:fixed; bottom:24px; right:24px; background:#1e293b; color:#fff;
+      padding:10px 18px; border-radius:8px; font-size:14px; font-weight:500;
+      box-shadow:0 4px 16px rgba(0,0,0,.2); z-index:999; transition:opacity .3s;
+    `;
+    document.body.appendChild(el);
+  }
+  el.textContent = msg;
+  el.style.opacity = '1';
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { el.style.opacity = '0'; }, 2500);
+}
+
+// ─────────────────────────────────────────────
+// KEYBOARD SHORTCUTS
+// ─────────────────────────────────────────────
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+    e.preventDefault();
+    if (!document.getElementById('btn-save').disabled) saveFile();
+  }
+  if (e.key === 'Escape') {
+    closeActModal();
+    closeGenModal();
+    // Ferme aussi la sidebar mobile si ouverte
+    const sb = document.getElementById('sidebar');
+    if (sb.classList.contains('open')) toggleSidebar();
+  }
+  // Flèches pour naviguer entre les jours (aucune modale ouverte)
+  const modalsOpen = !document.getElementById('act-modal').classList.contains('hidden') ||
+                     !document.getElementById('gen-modal').classList.contains('hidden');
+  if (state.view === 'programme' && state.data && !modalsOpen) {
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+      const days = state.data.GeneralProgram.map(d => d.Jour);
+      const idx = days.indexOf(state.currentDay);
+      if (e.key === 'ArrowLeft' && idx > 0) selectDay(days[idx - 1]);
+      if (e.key === 'ArrowRight' && idx < days.length - 1) selectDay(days[idx + 1]);
+    }
+  }
+});
+
+// Close modals on overlay click
+document.getElementById('act-modal').addEventListener('click', e => { if (e.target.id === 'act-modal') closeActModal(); });
+document.getElementById('gen-modal').addEventListener('click', e => { if (e.target.id === 'gen-modal') closeGenModal(); });
+</script>
+</body>
+</html>
+<script>
+// ─────────────────────────────────────────────
+// PWA — Enregistrement du Service Worker
+// ─────────────────────────────────────────────
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js')
+      .then(reg => console.log('[PWA] Service Worker enregistré :', reg.scope))
+      .catch(err => console.warn('[PWA] Échec enregistrement SW :', err));
+  });
+}
+</script>
