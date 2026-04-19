@@ -1,0 +1,1949 @@
+{}
+ Dashboard
+ Bins
+ Collections
+ Schema Docs
+ API Keys
+ My Account
+ API Reference 
+ Logout
+bins
+Manage all your bins in one place. Here, any bin you created which may be Uncategorized or in a Collection can be managed here.
+
+Uncategorized
+Create a Bin
+Bin ID	Name	Created	
+69e28e6836566621a8c4f42b 	Untitled	19:47 | 17-04-2026 (UTC)	
+Base Version
+Bin ID
+69e28e6836566621a8c4f42b
+Visibility
+Private 
+Collection
+-
+Created At
+19:47 | 17-04-2026 (UTC)
+Name
+Untitled
+Show More 
+
+{
+  "GeneralProgram": [
+    {
+      "Jour": "Jour 1",
+      "date": "7/30/26",
+      "Arrivée": "Los Angeles",
+      "hotel": "Glamorous KTown Boutique Residences with Rooftop view",
+      " prix logement ": 225.665
+    },
+    {
+      "Jour": "Jour 2",
+      "date": "7/31/26",
+      "Départ": "Los Angeles",
+      "Arrivée": "Los Angeles",
+      "hotel": "Glamorous KTown Boutique Residences with Rooftop view",
+      " prix logement ": 225.665
+    },
+    {
+      "Jour": "Jour 3",
+      "date": "8/1/26",
+      "Départ": "Los Angeles",
+      "Arrivée": "Pismo Beach",
+      "Temps de route": "2h51",
+      "hotel": "Motel 6-San Luis Obispo, CA - South",
+      "Hyperlink": "https://secure.booking.com/confirmation.fr.html?label=wasabi_widget_e7e89d8a-b692-4867-8c86-05ed3bd2c2f4&sid=cdce056d340c0086e5fcc4c074aef504&aid=2418382&auth_key=xn1JYu3pBcH3plPg&source=mytrips",
+      " prix logement ": 173.88,
+      "hyperlink": "https://secure.booking.com/confirmation.fr.html?label=wasabi_widget_e7e89d8a-b692-4867-8c86-05ed3bd2c2f4&sid=cdce056d340c0086e5fcc4c074aef504&aid=2418382&auth_key=xn1JYu3pBcH3plPg&source=mytrips"
+    },
+    {
+      "Jour": "Jour 4",
+      "date": "8/2/26",
+      "Départ": "Pismo Beach",
+      "Arrivée": "Monterey",
+      "Temps de route": "2h22",
+      "hotel": "El Castell Motel",
+      "Hyperlink": "https://secure.booking.com/confirmation.fr.html?label=wasabi_widget_e7e89d8a-b692-4867-8c86-05ed3bd2c2f4&sid=cdce056d340c0086e5fcc4c074aef504&aid=2418382&auth_key=kfhefk4L3wuvtWGI&source=mytrips",
+      " prix logement ": 200.3,
+      "hyperlink": "https://secure.booking.com/confirmation.fr.html?label=wasabi_widget_e7e89d8a-b692-4867-8c86-05ed3bd2c2f4&sid=cdce056d340c0086e5fcc4c074aef504&aid=2418382&auth_key=kfhefk4L3wuvtWGI&source=mytrips"
+    },
+    {
+      "Jour": "Jour 5",
+      "date": "8/3/26",
+      "Départ": "Monterey",
+      "Arrivée": "San Francisco",
+      "Temps de route": "1h55",
+      "hotel": "Hotel Zephyr San Francisco",
+      "Hyperlink": "https://secure.booking.com/confirmation.fr.html?label=wasabi_widget_e7e89d8a-b692-4867-8c86-05ed3bd2c2f4&sid=cdce056d340c0086e5fcc4c074aef504&aid=2418382&auth_key=eMy8UnBklrkIyxfr&source=mytrips",
+      "commentaires": "Matin: Silicon Valley,\n\nAprem: arrivée hotel puis Fisherman’s wharf, \n\nSoir: Alcatraz, Embarcadero\n\nJournée visite guidée en français (?) - compter 3-4h -\nDowntown et Chinatown, quartier résidentiel plein de charme entre Nob Hill et Russian Hill,  Lombard Street, le quartier Italien de North Beach, Fisherman's Wharf et la Baie de San Francisco avec des vues sur le Golden Gate Bridge et Alcatraz. Twin Peaks, Alamo square (painted Ladies), palace of art, Haight-Ashbury\n\nCable Car :\n• Acheter ticket à l’avance (Muni Pass ou single ride ~$8/adulte, $3/enfant)\n• Meilleure option pour monter les collines et limiter la marche\n2. Distance totale à pied : ~6–7 km + cable car pour franchir les collines\n3. Pacing : Adapté pour enfants et ados, avec pauses gourmandes / photo\n4. Option Golden Gate / Palace of Fine Arts : Peut se faire en taxi / Uber si la famille a encore de l’énergie, sinon à réserver pour un autre voyage",
+      " prix logement ": 504.64,
+      "hyperlink": "https://secure.booking.com/confirmation.fr.html?label=wasabi_widget_e7e89d8a-b692-4867-8c86-05ed3bd2c2f4&sid=cdce056d340c0086e5fcc4c074aef504&aid=2418382&auth_key=eMy8UnBklrkIyxfr&source=mytrips"
+    },
+    {
+      "Jour": "Jour 6",
+      "date": "8/4/26",
+      "Départ": "San Francisco",
+      "Arrivée": "San Francisco",
+      "hotel": "Hotel Zephyr San Francisco",
+      "Hyperlink": "https://secure.booking.com/confirmation.fr.html?label=wasabi_widget_e7e89d8a-b692-4867-8c86-05ed3bd2c2f4&sid=cdce056d340c0086e5fcc4c074aef504&aid=2418382&auth_key=eMy8UnBklrkIyxfr&source=mytrips",
+      "commentaires": "Matin: Silicon Valley,\n\nAprem: arrivée hotel puis Fisherman’s wharf, \n\nSoir: Alcatraz, Embarcadero\n\nJournée visite guidée en français (?) - compter 3-4h -\nDowntown et Chinatown, quartier résidentiel plein de charme entre Nob Hill et Russian Hill,  Lombard Street, le quartier Italien de North Beach, Fisherman's Wharf et la Baie de San Francisco avec des vues sur le Golden Gate Bridge et Alcatraz. Twin Peaks, Alamo square (painted Ladies), palace of art, Haight-Ashbury\n\nCable Car :\n• Acheter ticket à l’avance (Muni Pass ou single ride ~$8/adulte, $3/enfant)\n• Meilleure option pour monter les collines et limiter la marche\n2. Distance totale à pied : ~6–7 km + cable car pour franchir les collines\n3. Pacing : Adapté pour enfants et ados, avec pauses gourmandes / photo\n4. Option Golden Gate / Palace of Fine Arts : Peut se faire en taxi / Uber si la famille a encore de l’énergie, sinon à réserver pour un autre voyage",
+      " prix logement ": 504.64,
+      "hyperlink": "https://secure.booking.com/confirmation.fr.html?label=wasabi_widget_e7e89d8a-b692-4867-8c86-05ed3bd2c2f4&sid=cdce056d340c0086e5fcc4c074aef504&aid=2418382&auth_key=eMy8UnBklrkIyxfr&source=mytrips"
+    },
+    {
+      "Jour": "Jour 7",
+      "date": "8/5/26",
+      "Départ": "San Francisco",
+      "Arrivée": "Yosemite National Park",
+      "Temps de route": "3h50",
+      "hotel": "Yosemite View Lodge",
+      "Hyperlink": "https://secure.booking.com/confirmation.fr.html?label=wasabi_widget_e7e89d8a-b692-4867-8c86-05ed3bd2c2f4&sid=cdce056d340c0086e5fcc4c074aef504&aid=2418382&auth_key=4l0R6k62a8oJaWDg&source=mytrips",
+      "commentaires": "reserver entrée à partir du 6 mai 2025 (17h Fr) sur recreation.gox\n\nMatin route vers Mariposa grove\naprem : big trees loop trail 0,5km - 30 min facile \ngrizzly giant loop trail 3,2 km 1h moyen \nwawona Covered Bridge vers Yosemite history center\nnuit hotel Elportal",
+      " prix logement ": 487.39,
+      "hyperlink": "https://secure.booking.com/confirmation.fr.html?label=wasabi_widget_e7e89d8a-b692-4867-8c86-05ed3bd2c2f4&sid=cdce056d340c0086e5fcc4c074aef504&aid=2418382&auth_key=4l0R6k62a8oJaWDg&source=mytrips"
+    },
+    {
+      "Jour": "Jour 8",
+      "date": "8/6/26",
+      "Départ": "Yosemite National Park",
+      "Arrivée": "Mammoth Lakes",
+      "Temps de route": "1h5h",
+      "hotel": "Edelweiss Lodge",
+      "Hyperlink": "https://secure.booking.com/confirmation.fr.html?label=v3.cmksesm866k9i0814bbv6dsgh&sid=cdce056d340c0086e5fcc4c074aef504&aid=1607597&auth_key=oa8A3x0TPeJm8FrN&source=mytrips",
+      " prix logement ": 233.35,
+      "hyperlink": "https://secure.booking.com/confirmation.fr.html?label=v3.cmksesm866k9i0814bbv6dsgh&sid=cdce056d340c0086e5fcc4c074aef504&aid=1607597&auth_key=oa8A3x0TPeJm8FrN&source=mytrips"
+    },
+    {
+      "Jour": "Jour 9",
+      "date": "8/7/26",
+      "Départ": "Mammoth Lakes",
+      "Arrivée": "Death Valley National Park",
+      "Temps de route": "5h30",
+      "hotel": "the Ranch at Death Valley",
+      "Hyperlink": "https://secure.booking.com/confirmation.fr.html?label=v3.cmksesm866k9i0814bbv6dsgh&sid=cdce056d340c0086e5fcc4c074aef504&aid=1607597&auth_key=jYphcenZjWwDZgYW&source=mytrips",
+      " prix logement ": 245.38,
+      "hyperlink": "https://secure.booking.com/confirmation.fr.html?label=v3.cmksesm866k9i0814bbv6dsgh&sid=cdce056d340c0086e5fcc4c074aef504&aid=1607597&auth_key=jYphcenZjWwDZgYW&source=mytrips"
+    },
+    {
+      "Jour": "Jour 10",
+      "date": "8/8/26",
+      "Départ": "Death Valley National Park",
+      "Arrivée": "Las Vegas",
+      "Temps de route": "2h20",
+      "hotel": "The Cliffs at Peace Canyon",
+      "Hyperlink": "https://secure.booking.com/confirmation.fr.html?label=v3.cmksesm866k9i0814bbv6dsgh&sid=cdce056d340c0086e5fcc4c074aef504&aid=1607597&auth_key=hRFoTrY5j2hVxSSN&source=mytrips",
+      " prix logement ": 266.94,
+      "hyperlink": "https://secure.booking.com/confirmation.fr.html?label=v3.cmksesm866k9i0814bbv6dsgh&sid=cdce056d340c0086e5fcc4c074aef504&aid=1607597&auth_key=hRFoTrY5j2hVxSSN&source=mytrips"
+    },
+    {
+      "Jour": "Jour 11",
+      "date": "8/9/26",
+      "Départ": "Las Vegas",
+      "Arrivée": "Zion National Park",
+      "Temps de route": "2h35",
+      "hotel": "Zion Wildflower Resort",
+      "Hyperlink": "https://secure.booking.com/confirmation.fr.html?label=v3.cmksesm866k9i0814bbv6dsgh&sid=cdce056d340c0086e5fcc4c074aef504&aid=1607597&auth_key=WmVHnuOpsB6gP2oT&source=mytrips",
+      "commentaires": "depart LV -> 1h15 \nValley of Fire (entrée ouest,  loop Road , scenic drive) - 4h\npicnic seven sisters\nroute vers Zion 1h50\n\nvisitor center \ntemple of Sinawava - riverside walk 1h30 facile\nEmeralds pools grotto trail 2h facile \nou \ncanyon overlook trail 1h facile (difficile de se garer)",
+      " prix logement ": 240.94,
+      "hyperlink": "https://secure.booking.com/confirmation.fr.html?label=v3.cmksesm866k9i0814bbv6dsgh&sid=cdce056d340c0086e5fcc4c074aef504&aid=1607597&auth_key=WmVHnuOpsB6gP2oT&source=mytrips"
+    },
+    {
+      "Jour": "Jour 12",
+      "date": "8/10/26",
+      "Départ": "Zion National Park",
+      "Arrivée": "Bryce Canyon National Park",
+      "Temps de route": "1h49",
+      "hotel": "Best Western PLUS Bryce Canyon Grand Hotel",
+      "Hyperlink": "https://secure.booking.com/confirmation.fr.html?label=v3.cmksesm866k9i0814bbv6dsgh&sid=cdce056d340c0086e5fcc4c074aef504&aid=1607597&auth_key=xobkrXnpE0ZCw8Pz&source=mytrips",
+      "commentaires": "Watchman trail 2h moyen ou Par'us trail 30 min  facile\n\nzion mt camrel Hway US 89 UT 12 \narret checker board Mesa (rapide)\npause à Carmel Junction \ndej à Tropic ou Bryce Canyon city ou picnic\n\narrivée vers 14h: sunset point -> sunrise point 30-40min \n\ninspiraiton point bryce point \ncoucher de soliel à sunrise point",
+      " prix logement ": 357.33,
+      "hyperlink": "https://secure.booking.com/confirmation.fr.html?label=v3.cmksesm866k9i0814bbv6dsgh&sid=cdce056d340c0086e5fcc4c074aef504&aid=1607597&auth_key=xobkrXnpE0ZCw8Pz&source=mytrips"
+    },
+    {
+      "Jour": "Jour 13",
+      "date": "8/11/26",
+      "Départ": "Bryce Canyon National Park",
+      "Arrivée": "Hansksville (Caineville)",
+      "Temps de route": "2h26",
+      "hotel": "Cathedral Valley Inn",
+      "Hyperlink": "https://secure.booking.com/confirmation.fr.html?label=v3.cmksesm866k9i0814bbv6dsgh&sid=cdce056d340c0086e5fcc4c074aef504&aid=1607597&auth_key=dGZcO2oeeWPHabRL&source=mytrips",
+      "commentaires": "A Escalante crochet sur la Hole In The Rock Road pour Devils Garden,\nEn option Peekaboo et Spooky Gulch\nhttps://www.roadtrippin.fr/utah/devils- ... garden.php\nhttps://www.roadtrippin.fr/utah/peek-a- ... spooky.php\n(bien se garer au premier parking avec un SUV classique pour Peek-a-boo)\nsi vous n'aimez pas trop randonner, choisissez entre Cohab Canyon Trail ou Cassidy Arch. Les deux sont top.",
+      " prix logement ": 280.56,
+      "hyperlink": "https://secure.booking.com/confirmation.fr.html?label=v3.cmksesm866k9i0814bbv6dsgh&sid=cdce056d340c0086e5fcc4c074aef504&aid=1607597&auth_key=dGZcO2oeeWPHabRL&source=mytrips"
+    },
+    {
+      "Jour": "Jour 14",
+      "date": "8/12/26",
+      "Départ": "Caineville",
+      "Arrivée": "Monument Valley",
+      "Temps de route": "2h50",
+      "hotel": "Goulding's Lodge",
+      "Hyperlink": "https://secure.booking.com/confirmation.fr.html?label=v3.cmksesm866k9i0814bbv6dsgh&sid=cdce056d340c0086e5fcc4c074aef504&aid=1607597&auth_key=T6puu9MXTaOmI3Yr&source=mytrips",
+      " prix logement ": 347.48,
+      "hyperlink": "https://secure.booking.com/confirmation.fr.html?label=v3.cmksesm866k9i0814bbv6dsgh&sid=cdce056d340c0086e5fcc4c074aef504&aid=1607597&auth_key=T6puu9MXTaOmI3Yr&source=mytrips"
+    },
+    {
+      "Jour": "Jour 15",
+      "date": "8/13/26",
+      "Départ": "Monument Valley",
+      "Arrivée": "Page",
+      "Temps de route": "1h58",
+      "hotel": "Home2 Suites By Hilton Page Lake Powell",
+      "Hyperlink": "https://secure.booking.com/confirmation.fr.html?label=wasabi_widget_e7e89d8a-b692-4867-8c86-05ed3bd2c2f4&sid=cdce056d340c0086e5fcc4c074aef504&aid=2418382&auth_key=6zY08oD62TFen52v&source=mytrips",
+      "commentaires": "monument valley navajo tirbal park horse tours ou sacred monument tours (horseback option)",
+      " prix logement ": 199.5,
+      "hyperlink": "https://secure.booking.com/confirmation.fr.html?label=wasabi_widget_e7e89d8a-b692-4867-8c86-05ed3bd2c2f4&sid=cdce056d340c0086e5fcc4c074aef504&aid=2418382&auth_key=6zY08oD62TFen52v&source=mytrips"
+    },
+    {
+      "Jour": "Jour 16",
+      "date": "8/14/26",
+      "Départ": "Page",
+      "Arrivée": "Page",
+      "hotel": "Home2 Suites By Hilton Page Lake Powell",
+      "Hyperlink": "https://secure.booking.com/confirmation.fr.html?label=wasabi_widget_e7e89d8a-b692-4867-8c86-05ed3bd2c2f4&sid=cdce056d340c0086e5fcc4c074aef504&aid=2418382&auth_key=6zY08oD62TFen52v&source=mytrips",
+      " prix logement ": 199.5,
+      "hyperlink": "https://secure.booking.com/confirmation.fr.html?label=wasabi_widget_e7e89d8a-b692-4867-8c86-05ed3bd2c2f4&sid=cdce056d340c0086e5fcc4c074aef504&aid=2418382&auth_key=6zY08oD62TFen52v&source=mytrips"
+    },
+    {
+      "Jour": "Jour 17",
+      "date": "8/15/26",
+      "Départ": "Page",
+      "Arrivée": "Grand Canyon",
+      "Temps de route": "2h30",
+      "hotel": "Yavapai Lodge",
+      "commentaires": "the Grand Hotel at the Grand Canyon\n\nyavapai lodge ou Maswik Lodge",
+      " prix logement ": 245.32
+    },
+    {
+      "Jour": "Jour 18",
+      "date": "8/16/26",
+      "Départ": "Grand Canyon",
+      "Arrivée": "Williams",
+      "Temps de route": "2h40",
+      "hotel": "El Rancho Motel",
+      "Hyperlink": "https://secure.booking.com/confirmation.fr.html?label=v3.cmksesm866k9i0814bbv6dsgh&sid=cdce056d340c0086e5fcc4c074aef504&aid=1607597&auth_key=05DrIoEDd1DFibrF&source=mytrips",
+      " prix logement ": 156,
+      "hyperlink": "https://secure.booking.com/confirmation.fr.html?label=v3.cmksesm866k9i0814bbv6dsgh&sid=cdce056d340c0086e5fcc4c074aef504&aid=1607597&auth_key=05DrIoEDd1DFibrF&source=mytrips"
+    },
+    {
+      "Jour": "Jour 19",
+      "date": "8/17/26",
+      "Départ": "Williams",
+      "Arrivée": "Las Vegas",
+      "Temps de route": "5h",
+      "hotel": "Excalibur",
+      "Hyperlink": "https://secure.booking.com/confirmation.fr.html?label=v3.cmksesm866k9i0814bbv6dsgh&sid=cdce056d340c0086e5fcc4c074aef504&aid=1607597&auth_key=6j8LWsNV0f2olLwC&source=mytrips",
+      "commentaires": "Excalibur\nLuxor\nNY NY\nFlamingo",
+      " prix logement ": 282.93,
+      "hyperlink": "https://secure.booking.com/confirmation.fr.html?label=v3.cmksesm866k9i0814bbv6dsgh&sid=cdce056d340c0086e5fcc4c074aef504&aid=1607597&auth_key=6j8LWsNV0f2olLwC&source=mytrips"
+    },
+    {
+      "Jour": "Jour 20",
+      "date": "8/18/26",
+      "Départ": "Las Vegas",
+      "Arrivée": "Las Vegas",
+      "hotel": "Excalibur",
+      "Hyperlink": "https://secure.booking.com/confirmation.fr.html?label=v3.cmksesm866k9i0814bbv6dsgh&sid=cdce056d340c0086e5fcc4c074aef504&aid=1607597&auth_key=6j8LWsNV0f2olLwC&source=mytrips",
+      "commentaires": "welcome sign - webcam 24/24 7/7 peu donner rdv pour un coucou à l'autre bout de la terre\n\nsphere (ext. Int.)",
+      " prix logement ": 0
+    },
+    {
+      "Jour": "Jour 21",
+      "date": "8/19/26",
+      "Départ": "Las Vegas",
+      "Arrivée": "Las Vegas",
+      "commentaires": "goodsprings & seven Magic Mountains\ndowntown Las Vegas (fremont Street expérience)\nfontains of Bellagio (+interieurs de l'hotel)\nrain show au sein de Miracle Mile shops\nspectacle hotel Wynn lake of dreams ttes les 30min à la nuit tombée\nhigh roller $30 ad. $10 enf.\nomega mart\n\nsoirée spectacle (800-900€)",
+      "hotel": "",
+      "hyperlink": "https://secure.booking.com/confirmation.fr.html?label=v3.cmksesm866k9i0814bbv6dsgh&sid=cdce056d340c0086e5fcc4c074aef504&aid=1607597&auth_key=6j8LWsNV0f2olLwC&source=mytrips",
+      " prix logement ": 0
+    }
+  ],
+  "DayProgram": [
+    {
+      "Jour": "Jour 1",
+      "Item": 1,
+      "Description": "Atterissage Aéroport LAX",
+      "HeureF": "11:50",
+      "Icone": "✈️",
+      "Durée": "11:50",
+      "HeureD": "0:00"
+    },
+    {
+      "Jour": "Jour 1",
+      "Item": 2,
+      "Description": "Immigration, récupération bagages - Prise de la voiture de location",
+      "HeureD": "12:30",
+      "HeureF": "13:30",
+      "Icone": "✈️",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 1",
+      "Item": 3,
+      "Description": "Trajet LAX → logement (selon trafic)   30 min",
+      "HeureD": "13:30",
+      "HeureF": "14:30",
+      "Icone": "🚗 ",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 1",
+      "Item": 4,
+      "Description": "Check-in / dépôt bagages- Pause, hydratation",
+      "HeureD": "14:30",
+      "HeureF": "15:30",
+      "Durée": "1:00",
+      "Icone": "🏨"
+    },
+    {
+      "Jour": "Jour 1",
+      "Item": 5,
+      "Description": "Koreatown → Beverly Hills",
+      "HeureD": "15:30",
+      "HeureF": "16:15",
+      "Icone": "🚗 ",
+      "Durée": "0:45"
+    },
+    {
+      "Jour": "Jour 1",
+      "Item": 6,
+      "Description": "Beverly Hills / Rodeo Drive- Balade à pied- Photos",
+      "HeureD": "16:15",
+      "HeureF": "17:00",
+      "Icone": "📍",
+      "Durée": "0:45"
+    },
+    {
+      "Jour": "Jour 1",
+      "Item": 7,
+      "Description": "Beverly Hills → Hollywood Blvd",
+      "HeureD": "17:00",
+      "HeureF": "17:30",
+      "Icone": "🚗 ",
+      "Durée": "0:30"
+    },
+    {
+      "Jour": "Jour 1",
+      "Item": 8,
+      "Description": "Hollywood Walk of Fame - TCL Chinese Theatre - Dolby Theatre",
+      "HeureD": "17:30",
+      "HeureF": "18:30",
+      "Icone": "📍",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 1",
+      "Item": 9,
+      "Description": "Hollywood → Griffith Observatory",
+      "HeureD": "18:30",
+      "HeureF": "19:15",
+      "Icone": "🚗 ",
+      "Durée": "0:45"
+    },
+    {
+      "Jour": "Jour 1",
+      "Item": 10,
+      "Description": "Griffith Observatory - Vue sur LA & panneau Hollywood - Coucher de soleil",
+      "HeureD": "19:15",
+      "HeureF": "20:15",
+      "Icone": "📍",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 1",
+      "Item": 11,
+      "Description": "Dîner proche logement",
+      "HeureD": "20:30",
+      "HeureF": "22:00",
+      "Icone": "🍽️",
+      "Durée": "1:30"
+    },
+    {
+      "Jour": "Jour 1",
+      "Item": 12,
+      "Description": "Nuit à Los Angeles",
+      "HeureD": "22:00",
+      "Icone": "🛏️"
+    },
+    {
+      "Jour": "Jour 2",
+      "Item": 1,
+      "Description": "Trajet vers Universal Studios",
+      "HeureD": "8:15",
+      "HeureF": "9:00",
+      "Icone": "🚗 ",
+      "Durée": "0:45"
+    },
+    {
+      "Jour": "Jour 2",
+      "Item": 2,
+      "Description": "Universal Studios Hollywood - Studios + attractions",
+      "HeureD": "9:15",
+      "HeureF": "18:00",
+      "Icone": "🎢",
+      "Durée": "8:45"
+    },
+    {
+      "Jour": "Jour 2",
+      "Item": 3,
+      "Description": "Universal → Venice Beach",
+      "HeureD": "18:00",
+      "HeureF": "18:45",
+      "Icone": "🚗 ",
+      "Durée": "0:45"
+    },
+    {
+      "Jour": "Jour 2",
+      "Item": 4,
+      "Description": "Venice Beach & Santa Monica -  Boardwalk - Coucher de soleil",
+      "HeureD": "18:45",
+      "HeureF": "20:00",
+      "Icone": "📍",
+      "Durée": "1:15"
+    },
+    {
+      "Jour": "Jour 2",
+      "Item": 5,
+      "Description": "Dîner",
+      "HeureD": "20:30",
+      "HeureF": "22:00",
+      "Icone": "🍽️",
+      "Durée": "1:30"
+    },
+    {
+      "Jour": "Jour 2",
+      "Item": 6,
+      "Description": "Nuit à Los Angeles",
+      "HeureD": "22:00",
+      "Icone": "🛏️"
+    },
+    {
+      "Jour": "Jour 3",
+      "Item": 1,
+      "Description": "Petit-déjeuner & check-out à Los Angeles",
+      "HeureD": "7:30",
+      "HeureF": "8:30",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 3",
+      "Item": 2,
+      "Description": "LA → Santa Barbara (Highway 101)",
+      "HeureD": "8:30",
+      "HeureF": "10:30",
+      "Icone": "🚗 ",
+      "Durée": "2:00"
+    },
+    {
+      "Jour": "Jour 3",
+      "Item": 3,
+      "Description": "Santa Barbara - Stearns Wharf - Plage -🚶‍♂️ À pied",
+      "HeureD": "10:30",
+      "HeureF": "11:30",
+      "Icone": "📍",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 3",
+      "Item": 4,
+      "Description": "Santa Barbara → Solvang",
+      "HeureD": "11:30",
+      "HeureF": "12:30",
+      "Icone": "🚗 ",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 3",
+      "Item": 5,
+      "Description": "Solvang - Balade village danois -  Pause déjeuner léger / pâtisserie🚶‍♂️ À pied",
+      "HeureD": "12:30",
+      "HeureF": "13:45",
+      "Icone": "🍽️",
+      "Durée": "1:15"
+    },
+    {
+      "Jour": "Jour 3",
+      "Item": 6,
+      "Description": "Solvang → Pismo Beach",
+      "HeureD": "13:45",
+      "HeureF": "14:30",
+      "Icone": "🚗 ",
+      "Durée": "0:45"
+    },
+    {
+      "Jour": "Jour 3",
+      "Item": 7,
+      "Description": "Pismo Beach - Plage - Pier - Détente / jeux enfants -🚶‍♂️ À pied",
+      "HeureD": "14:30",
+      "HeureF": "16:00",
+      "Icone": "📍",
+      "Durée": "1:30"
+    },
+    {
+      "Jour": "Jour 3",
+      "Item": 8,
+      "Description": "Pismo Beach → San Luis Obispo",
+      "HeureD": "16:00",
+      "HeureF": "16:30",
+      "Icone": "🚗 ",
+      "Durée": "0:30"
+    },
+    {
+      "Jour": "Jour 3",
+      "Item": 9,
+      "Description": "16h30 – 17h30 Check-in motel / repos",
+      "HeureD": "16:30",
+      "HeureF": "17:30",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 3",
+      "Item": 10,
+      "Description": "Dîner simple",
+      "HeureD": "18:30",
+      "HeureF": "22:00",
+      "Icone": "🍽️",
+      "Durée": "3:30"
+    },
+    {
+      "Jour": "Jour 3",
+      "Item": 11,
+      "Description": "Nuit à San Luis Obispo",
+      "HeureD": "22:00",
+      "Icone": "🛏️"
+    },
+    {
+      "Jour": "Jour 4",
+      "Item": 1,
+      "Description": "Petit-déjeuner & check-out",
+      "HeureD": "7:30",
+      "HeureF": "8:30",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 4",
+      "Item": 2,
+      "Description": "San Luis Obispo → Morro Bay",
+      "HeureD": "8:30",
+      "HeureF": "9:00",
+      "Icone": "🚗 ",
+      "Durée": "0:30"
+    },
+    {
+      "Jour": "Jour 4",
+      "Item": 3,
+      "Description": "Morro Bay (express – 15 min max) - Vue Morro Rock - Photos rapides",
+      "HeureD": "9:00",
+      "HeureF": "9:15",
+      "Icone": "📍",
+      "Durée": "0:15"
+    },
+    {
+      "Jour": "Jour 4",
+      "Item": 4,
+      "Description": "Morro Bay → Big Sur (Highway 1) ",
+      "HeureD": "9:15",
+      "HeureF": "11:45",
+      "Icone": "🚗 ",
+      "Durée": "2:30"
+    },
+    {
+      "Jour": "Jour 4",
+      "Item": 5,
+      "Description": "Bixby Bridge - Photos iconiques",
+      "HeureD": "11:45",
+      "HeureF": "12:15",
+      "Icone": "📍",
+      "Durée": "0:30"
+    },
+    {
+      "Jour": "Jour 4",
+      "Item": 6,
+      "Description": "McWay Falls - Marche courte - Point de vue",
+      "HeureD": "12:30",
+      "HeureF": "13:00",
+      "Icone": "📍",
+      "Durée": "0:30"
+    },
+    {
+      "Jour": "Jour 4",
+      "Item": 7,
+      "Description": "Déjeuner pique-nique / snack",
+      "HeureD": "13:00",
+      "HeureF": "13:30",
+      "Icone": "🧺 ",
+      "Durée": "0:30"
+    },
+    {
+      "Jour": "Jour 4",
+      "Item": 8,
+      "Description": "Big Sur → Monterey",
+      "HeureD": "13:30",
+      "HeureF": "15:00",
+      "Icone": "🚗 ",
+      "Durée": "1:30"
+    },
+    {
+      "Jour": "Jour 4",
+      "Item": 9,
+      "Description": "Check-in El Castell Motel",
+      "HeureD": "15:00",
+      "HeureF": "15:30",
+      "Durée": "0:30"
+    },
+    {
+      "Jour": "Jour 4",
+      "Item": 10,
+      "Description": "Monterey - Cannery Row - Front de mer - ‍♂️ À pied",
+      "HeureD": "16:00",
+      "HeureF": "18:00",
+      "Icone": "📍",
+      "Durée": "2:00"
+    },
+    {
+      "Jour": "Jour 4",
+      "Item": 11,
+      "Description": "Lovers Point – Pacific Grove - Coucher de soleil",
+      "HeureD": "18:15",
+      "HeureF": "19:15",
+      "Icone": "📍",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 4",
+      "Item": 12,
+      "Description": "Dîner",
+      "HeureD": "19:30",
+      "HeureF": "22:00",
+      "Icone": "🍽️",
+      "Durée": "2:30"
+    },
+    {
+      "Jour": "Jour 4",
+      "Item": 13,
+      "Description": "Nuit à Monterey",
+      "HeureD": "22:00",
+      "Icone": "🛏️"
+    },
+    {
+      "Jour": "Jour 5",
+      "Item": 1,
+      "Description": "Départ Monterey – –",
+      "HeureD": "8:00",
+      "HeureF": "9:30",
+      "Durée": "1:30"
+    },
+    {
+      "Jour": "Jour 5",
+      "Item": 2,
+      "Description": "Silicon Valley / Palo Alto – Stanford Univ., Apple Park Visitor Center, Googleplex Voiture Monterey → Palo Alto h 1h30 1h30–2h pour photos et courts arrêts",
+      "HeureD": "9:30",
+      "HeureF": "11:00",
+      "Durée": "1:30"
+    },
+    {
+      "Jour": "Jour 5",
+      "Item": 3,
+      "Description": "Route vers SF + check-in Zephyr Voiture Palo Alto → Fisherman’s Wharf h 1h15 Arrivée, dépôt bagages",
+      "HeureD": "11:00",
+      "HeureF": "12:30",
+      "Icone": "🚗 ",
+      "Durée": "1:30"
+    },
+    {
+      "Jour": "Jour 5",
+      "Item": 4,
+      "Description": "Déjeuner Fisherman’s Wharf À pied depuis hôtel (0–5 min selon resto) 1h",
+      "HeureD": "12:30",
+      "HeureF": "13:30",
+      "Icone": "🍽️",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 5",
+      "Item": 5,
+      "Description": "Baie / Golden Gate Views Voiture 10 min 1h pour photo et balade courte",
+      "HeureD": "14:30",
+      "HeureF": "15:30",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 5",
+      "Item": 6,
+      "Description": "Alcatraz Night Tour À pied Pier 33 → Ferry h 5 min 2h30 visite immersive avec audio-guide",
+      "HeureD": "18:00",
+      "HeureF": "21:30",
+      "Durée": "3:30"
+    },
+    {
+      "Jour": "Jour 5",
+      "Item": 7,
+      "Description": "Retour hôtel Zephyr À pied 5 min Soirée libre / repos",
+      "HeureD": "21:45",
+      "Icone": "🛏️"
+    },
+    {
+      "Jour": "Jour 6",
+      "Item": 1,
+      "Description": "Fisherman’s Wharf / Pier 39 - 5 min à Pied  - temps sur place 45 min",
+      "HeureD": "8:30",
+      "HeureF": "9:15",
+      "Durée": "0:45"
+    },
+    {
+      "Jour": "Jour 6",
+      "Item": 2,
+      "Description": "Cable Car vers Union Square / Downtown trajet 30-40min (arret photos)",
+      "HeureD": "9:15",
+      "HeureF": "10:15",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 6",
+      "Item": 3,
+      "Description": "Union Square balade, boutiques, mouments temps sur place 45 min",
+      "HeureD": "10:15",
+      "HeureF": "11:00",
+      "Durée": "0:45"
+    },
+    {
+      "Jour": "Jour 6",
+      "Item": 4,
+      "Description": "Chinatown 10 min à pied, ruelles, marchés, temples - 45 min",
+      "HeureD": "11:00",
+      "HeureF": "11:45",
+      "Durée": "0:45"
+    },
+    {
+      "Jour": "Jour 6",
+      "Item": 5,
+      "Description": "11h45 – 12h30 North Beach (quartier italien) 5-10 in à pied, quartier historique et cafés italiens - 45 min",
+      "HeureD": "11:45",
+      "HeureF": "12:30",
+      "Durée": "0:45"
+    },
+    {
+      "Jour": "Jour 6",
+      "Item": 6,
+      "Description": "Déj North Beach / Fisherman’s Wharf (~10–15 min à pied selon choix)",
+      "HeureD": "12:30",
+      "HeureF": "13:30",
+      "Icone": "🍽️",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 6",
+      "Item": 7,
+      "Description": "13h30 – 14h15  Lombard Street  À pied depuis North Beach / Chinatown (~15 min) - Descente de la rue la plus sinueuse du monde (Photos)  Temps h 30–45 min",
+      "HeureD": "13:30",
+      "HeureF": "14:15",
+      "Durée": "0:45"
+    },
+    {
+      "Jour": "Jour 6",
+      "Item": 8,
+      "Description": "Russian Hill / quartier résidentiel  Balade - Temps h 45 min",
+      "HeureD": "14:15",
+      "HeureF": "15:00",
+      "Durée": "0:45"
+    },
+    {
+      "Jour": "Jour 6",
+      "Item": 9,
+      "Description": "Embarcadero / Ferry Building  À pied depuis Russian Hill (~20 min, possibilité tram Muni) - Balade le long de l’Embarcadero (Marché, artisanat, photos de la baie)- Temps h 45 min",
+      "HeureD": "15:00",
+      "HeureF": "15:45",
+      "Durée": "0:45"
+    },
+    {
+      "Jour": "Jour 6",
+      "Item": 10,
+      "Description": "Retour cable car vers Fisherman’s Wharf - Cable car Powell-Hyde line retour vers Fisherman’s Wharf (~20–25 min) - Profiter du trajet pour les panoramas sur la baie et le Golden Gate Bridge",
+      "HeureD": "15:45",
+      "HeureF": "16:30",
+      "Durée": "0:45"
+    },
+    {
+      "Jour": "Jour 6",
+      "Item": 11,
+      "Description": "Fisherman’s Wharf / Pier 39- Balade finale et souvenirs - Temps libre avant dîner ou repos",
+      "HeureD": "16:30",
+      "HeureF": "17:30",
+      "Icone": "🍽️",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 7",
+      "Item": 1,
+      "Description": "Petit-déjeuner & check-out",
+      "HeureD": "7:00",
+      "HeureF": "8:00",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 7",
+      "Item": 2,
+      "Description": "San Francisco → Mariposa Grove (pause incluse)",
+      "HeureD": "8:00",
+      "HeureF": "12:00",
+      "Icone": "🚗 ",
+      "Durée": "4:00"
+    },
+    {
+      "Jour": "Jour 7",
+      "Item": 3,
+      "Description": "Déjeuner rapide / pique-nique",
+      "HeureD": "12:00",
+      "HeureF": "12:45",
+      "Icone": "🧺 ",
+      "Durée": "0:45"
+    },
+    {
+      "Jour": "Jour 7",
+      "Item": 4,
+      "Description": "Big Trees Loop Trail - 0,5 km – 30 min – facile",
+      "HeureD": "13:00",
+      "HeureF": "13:30",
+      "Icone": "📍",
+      "Durée": "0:30"
+    },
+    {
+      "Jour": "Jour 7",
+      "Item": 5,
+      "Description": "Grizzly Giant Loop Trail - 3,2 km – 1h – niveau modéré",
+      "HeureD": "13:30",
+      "HeureF": "14:45",
+      "Icone": "📍",
+      "Durée": "1:15"
+    },
+    {
+      "Jour": "Jour 7",
+      "Item": 6,
+      "Description": " Wawona Covered Bridge & Yosemite History Center - Arrêt photo & courte visite",
+      "HeureD": "15:00",
+      "HeureF": "15:30",
+      "Icone": "📍",
+      "Durée": "0:30"
+    },
+    {
+      "Jour": "Jour 7",
+      "Item": 7,
+      "Description": "Mariposa Grove → El Portal",
+      "HeureD": "15:30",
+      "HeureF": "16:30",
+      "Icone": "🚗 ",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 7",
+      "Item": 8,
+      "Description": "Check-in hôtel & repos",
+      "HeureD": "17:00",
+      "HeureF": "18:30",
+      "Durée": "1:30"
+    },
+    {
+      "Jour": "Jour 7",
+      "Item": 9,
+      "Description": "Dîner",
+      "HeureD": "19:00",
+      "HeureF": "22:00",
+      "Icone": "🍽️",
+      "Durée": "3:00"
+    },
+    {
+      "Jour": "Jour 7",
+      "Item": 10,
+      "Description": "Nuit à El Portal",
+      "HeureD": "22:00",
+      "Icone": "🛏️"
+    },
+    {
+      "Jour": "Jour 8",
+      "Item": 1,
+      "Description": "07h00 – 08h00 Petit-déjeuner & check-out",
+      "HeureD": "7:00",
+      "HeureF": "8:00",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 8",
+      "Item": 2,
+      "Description": "Tunnel View - Panorama iconique",
+      "HeureD": "8:15",
+      "HeureF": "8:30",
+      "Icone": "📍",
+      "Durée": "0:15"
+    },
+    {
+      "Jour": "Jour 8",
+      "Item": 3,
+      "Description": "Bridalveil Fall - Marche courte – chute rafraîchissante",
+      "HeureD": "8:45",
+      "HeureF": "9:15",
+      "Icone": "📍",
+      "Durée": "0:30"
+    },
+    {
+      "Jour": "Jour 8",
+      "Item": 4,
+      "Description": "09h30 – 09h45 📍 Valley View - Vue sur El Capitan",
+      "HeureD": "9:30",
+      "HeureF": "9:45",
+      "Icone": "📍",
+      "Durée": "0:15"
+    },
+    {
+      "Jour": "Jour 8",
+      "Item": 5,
+      "Description": "Sentinel Meadow & pont - Pause calme",
+      "HeureD": "10:00",
+      "HeureF": "10:30",
+      "Icone": "📍",
+      "Durée": "0:30"
+    },
+    {
+      "Jour": "Jour 8",
+      "Item": 6,
+      "Description": "Mirror Lake - 3 km – 1h – facile",
+      "HeureD": "10:45",
+      "HeureF": "12:00",
+      "Icone": "📍",
+      "Durée": "1:15"
+    },
+    {
+      "Jour": "Jour 8",
+      "Item": 7,
+      "Description": "Déjeuner (Yosemite Valley)",
+      "HeureD": "12:15",
+      "HeureF": "13:00",
+      "Icone": "🍽️",
+      "Durée": "0:45"
+    },
+    {
+      "Jour": "Jour 8",
+      "Item": 8,
+      "Description": "Glacier Point - Point de vue spectaculaire",
+      "HeureD": "13:15",
+      "HeureF": "13:45",
+      "Icone": "📍",
+      "Durée": "0:30"
+    },
+    {
+      "Jour": "Jour 8",
+      "Item": 9,
+      "Description": "Tioga Road (route panoramique)",
+      "HeureD": "14:00",
+      "HeureF": "17:30",
+      "Icone": "🚗 ",
+      "Durée": "3:30"
+    },
+    {
+      "Jour": "Jour 8",
+      "Item": 10,
+      "Description": "• Olmsted Point",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 8",
+      "Item": 11,
+      "Description": "• Tenaya Lake",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 8",
+      "Item": 12,
+      "Description": "• Tuolumne Meadows (balade courte)",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 8",
+      "Item": 13,
+      "Description": "• Soda Springs Trail – 2 km – 45 min – facile",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 8",
+      "Item": 14,
+      "Description": "Tuolumne Meadows → Mammoth Lakes",
+      "HeureD": "17:30",
+      "HeureF": "18:30",
+      "Icone": "🚗 ",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 8",
+      "Item": 15,
+      "Description": "18h30 Check-in hôtel",
+      "HeureD": "18:30",
+      "HeureF": "19:30",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 8",
+      "Item": 16,
+      "Description": "Dîner",
+      "HeureD": "19:30",
+      "HeureF": "22:00",
+      "Icone": "🍽️",
+      "Durée": "2:30"
+    },
+    {
+      "Jour": "Jour 8",
+      "Item": 17,
+      "Description": "Nuit à Mammoth Lakes",
+      "HeureD": "22:00",
+      "Icone": "🛏️"
+    },
+    {
+      "Jour": "Jour 9",
+      "Item": 1,
+      "Description": "Petit-déjeuner & check-out",
+      "HeureD": "7:30",
+      "HeureF": "8:30",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 9",
+      "Item": 2,
+      "Description": "Panorama Dome Trail1 km – 30 min – facile",
+      "HeureD": "8:45",
+      "HeureF": "9:15",
+      "Icone": "📍",
+      "Durée": "0:30"
+    },
+    {
+      "Jour": "Jour 9",
+      "Item": 3,
+      "Description": "Horseshoe Lake Loop 2,7 km – 1h – facile",
+      "HeureD": "9:30",
+      "HeureF": "10:30",
+      "Icone": "📍",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 9",
+      "Item": 4,
+      "Description": "Mammoth Lakes → Hot Creek",
+      "HeureD": "10:30",
+      "HeureF": "11:00",
+      "Icone": "🚗 ",
+      "Durée": "0:30"
+    },
+    {
+      "Jour": "Jour 9",
+      "Item": 5,
+      "Description": "Hot Creek Passerelles – activité ludique",
+      "HeureD": "11:00",
+      "HeureF": "12:00",
+      "Icone": "📍",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 9",
+      "Item": 6,
+      "Description": "Hot Creek → Alabama Hills",
+      "HeureD": "12:00",
+      "HeureF": "13:00",
+      "Icone": "🚗 ",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 9",
+      "Item": 7,
+      "Description": "Alabama Hills",
+      "HeureD": "13:00",
+      "HeureF": "15:00",
+      "Icone": "📍",
+      "Durée": "2:00"
+    },
+    {
+      "Jour": "Jour 9",
+      "Item": 8,
+      "Description": "• Movie Flat Road (voiture)",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 9",
+      "Item": 9,
+      "Description": "• Eye of Alabama Arch – 0,6 km – 20 min",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 9",
+      "Item": 10,
+      "Description": "• Mobius Arch (si énergie)",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 9",
+      "Item": 11,
+      "Description": "Alabama Hills → Death Valley",
+      "HeureD": "15:00",
+      "HeureF": "17:00",
+      "Icone": "🚗 ",
+      "Durée": "2:00"
+    },
+    {
+      "Jour": "Jour 9",
+      "Item": 12,
+      "Description": "Check-in Furnace Creek",
+      "HeureD": "17:15",
+      "HeureF": "18:00",
+      "Durée": "0:45"
+    },
+    {
+      "Jour": "Jour 9",
+      "Item": 13,
+      "Description": "Zabriskie Point – coucher de soleil",
+      "HeureD": "18:15",
+      "HeureF": "19:15",
+      "Icone": "📍",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 9",
+      "Item": 14,
+      "Description": "Dîner",
+      "HeureD": "19:30",
+      "HeureF": "22:00",
+      "Icone": "🍽️",
+      "Durée": "2:30"
+    },
+    {
+      "Jour": "Jour 9",
+      "Item": 15,
+      "Description": "Nuit à Death Valley",
+      "HeureD": "22:00",
+      "Icone": "🛏️"
+    },
+    {
+      "Jour": "Jour 10",
+      "Item": 1,
+      "Description": "Petit-déjeuner & check-out",
+      "HeureD": "6:30",
+      "HeureF": "7:30",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 10",
+      "Item": 2,
+      "Description": "Devil’s Golf Course - Arrêt rapide",
+      "HeureD": "7:30",
+      "HeureF": "8:00",
+      "Icone": "📍",
+      "Durée": "0:30"
+    },
+    {
+      "Jour": "Jour 10",
+      "Item": 3,
+      "Description": "Badwater Basin - Point le plus bas d’Amérique du Nord",
+      "HeureD": "8:15",
+      "HeureF": "9:00",
+      "Icone": "📍",
+      "Durée": "0:45"
+    },
+    {
+      "Jour": "Jour 10",
+      "Item": 4,
+      "Description": "Artist’s Palette - Route colorée",
+      "HeureD": "9:15",
+      "HeureF": "10:00",
+      "Icone": "📍",
+      "Durée": "0:45"
+    },
+    {
+      "Jour": "Jour 10",
+      "Item": 5,
+      "Description": "Twenty Mule Team Canyon Road - Piste scénique",
+      "HeureD": "10:15",
+      "HeureF": "10:45",
+      "Icone": "📍",
+      "Durée": "0:30"
+    },
+    {
+      "Jour": "Jour 10",
+      "Item": 6,
+      "Description": "Dante’s View - Vue panoramique finale",
+      "HeureD": "11:00",
+      "HeureF": "11:30",
+      "Icone": "📍",
+      "Durée": "0:30"
+    },
+    {
+      "Jour": "Jour 10",
+      "Item": 7,
+      "Description": "Death Valley → Las Vegas",
+      "HeureD": "11:30",
+      "HeureF": "15:00",
+      "Icone": "🚗 ",
+      "Durée": "3:30"
+    },
+    {
+      "Jour": "Jour 10",
+      "Item": 8,
+      "Description": "Check-in hôtel – piscine & repos",
+      "HeureD": "15:00",
+      "HeureF": "18:00",
+      "Durée": "3:00"
+    },
+    {
+      "Jour": "Jour 10",
+      "Item": 9,
+      "Description": "Soirée libre",
+      "HeureD": "18:00",
+      "HeureF": "22:00",
+      "Durée": "4:00"
+    },
+    {
+      "Jour": "Jour 10",
+      "Item": 10,
+      "Description": "Nuit à Las Vegas",
+      "HeureD": "22:00",
+      "Icone": "🛏️"
+    },
+    {
+      "Jour": "Jour 11",
+      "Item": 1,
+      "Description": "Petit-déjeuner & check-out",
+      "HeureD": "7:00",
+      "HeureF": "8:00",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 11",
+      "Item": 2,
+      "Description": "Las Vegas → Valley of Fire (entrée ouest)",
+      "HeureD": "8:00",
+      "HeureF": "9:15",
+      "Icone": "🚗 ",
+      "Durée": "1:15"
+    },
+    {
+      "Jour": "Jour 11",
+      "Item": 3,
+      "Description": "Valley of Fire State Park – 4h",
+      "HeureD": "9:15",
+      "HeureF": "13:15",
+      "Icone": "📍",
+      "Durée": "4:00"
+    },
+    {
+      "Jour": "Jour 11",
+      "Item": 4,
+      "Description": "• Loop Road",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 11",
+      "Item": 5,
+      "Description": "• Scenic Drive",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 11",
+      "Item": 6,
+      "Description": "• Arrêts panoramiques",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 11",
+      "Item": 7,
+      "Description": "• Balades courtes",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 11",
+      "Item": 8,
+      "Description": "• Photos",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 11",
+      "Item": 9,
+      "Description": "Pique_nique Seven Sisters",
+      "HeureD": "12:00",
+      "HeureF": "13:00",
+      "Icone": "🧺 ",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 11",
+      "Item": 10,
+      "Description": "Valley of Fire → Zion National Park",
+      "HeureD": "13:15",
+      "HeureF": "15:05",
+      "Icone": "🚗 ",
+      "Durée": "1:50"
+    },
+    {
+      "Jour": "Jour 11",
+      "Item": 11,
+      "Description": "Zion Visitor Center - Informations, navettes",
+      "HeureD": "15:15",
+      "HeureF": "15:45",
+      "Icone": "📍",
+      "Durée": "0:30"
+    },
+    {
+      "Jour": "Jour 11",
+      "Item": 12,
+      "Description": "🌿 Après-midi à Zion (choix selon fatigue)",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 11",
+      "Item": 13,
+      "Description": "Option 1 – Recommandée famille (faible fatigue)",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 11",
+      "Item": 14,
+      "Description": "Temple of Sinawava → Riverside Walk - 1h30 – facile – plat- Très adapté enfants",
+      "HeureD": "15:45",
+      "HeureF": "17:15",
+      "Icone": "📍",
+      "Durée": "1:30"
+    },
+    {
+      "Jour": "Jour 12",
+      "Item": 1,
+      "Description": "Petit-déjeuner & check-out",
+      "HeureD": "7:30",
+      "HeureF": "8:30",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 12",
+      "Item": 2,
+      "Description": "🌄 Matin à Zion (court et efficace)",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 12",
+      "Item": 3,
+      "Description": "Option 1 – Ultra facile",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 12",
+      "Item": 4,
+      "Description": "Pa’rus Trail - 30 min – facile – plat -Idéal enfants",
+      "HeureD": "8:45",
+      "HeureF": "9:15",
+      "Icone": "📍",
+      "Durée": "0:30"
+    },
+    {
+      "Jour": "Jour 12",
+      "Item": 5,
+      "Description": "Option 2 – Modéré (si énergie) ",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 12",
+      "Item": 6,
+      "Description": "Watchman Trail -2h – niveau moyen - Super vues, mais plus exigeant",
+      "HeureD": "8:30",
+      "HeureF": "10:30",
+      "Icone": "📍",
+      "Durée": "2:00"
+    },
+    {
+      "Jour": "Jour 12",
+      "Item": 7,
+      "Description": "Zion → Checkerboard Mesa",
+      "HeureD": "10:30",
+      "HeureF": "11:00",
+      "Icone": "🚗 ",
+      "Durée": "0:30"
+    },
+    {
+      "Jour": "Jour 12",
+      "Item": 8,
+      "Description": "Checkerboard Mesa -Arrêt photo rapide",
+      "HeureD": "11:00",
+      "HeureF": "11:15",
+      "Icone": "📍",
+      "Durée": "0:15"
+    },
+    {
+      "Jour": "Jour 12",
+      "Item": 9,
+      "Description": "Zion → Carmel Junction",
+      "HeureD": "11:15",
+      "HeureF": "12:00",
+      "Icone": "🚗 ",
+      "Durée": "0:45"
+    },
+    {
+      "Jour": "Jour 12",
+      "Item": 10,
+      "Description": "Pause déjeuner",
+      "HeureD": "12:00",
+      "HeureF": "13:00",
+      "Icone": "🍽️",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 12",
+      "Item": 11,
+      "Description": "Options :",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 12",
+      "Item": 12,
+      "Description": "Tropic",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 12",
+      "Item": 13,
+      "Description": "Bryce Canyon City",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 12",
+      "Item": 14,
+      "Description": "Pique-nique",
+      "Icone": "🧺 ",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 12",
+      "Item": 15,
+      "Description": "Carmel Junction → Bryce Canyon",
+      "HeureD": "13:00",
+      "HeureF": "14:00",
+      "Icone": "🚗 ",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 12",
+      "Item": 16,
+      "Description": "🌅 Après-midi à Bryce Canyon",
+      "Icone": "🌄",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 12",
+      "Item": 17,
+      "Description": "Sunset Point → Sunrise Point - 30–40 min – facile -Bord du rim",
+      "HeureD": "14:00",
+      "HeureF": "14:40",
+      "Icone": "📍",
+      "Durée": "0:40"
+    },
+    {
+      "Jour": "Jour 12",
+      "Item": 18,
+      "Description": "Inspiration Point",
+      "HeureD": "15:00",
+      "HeureF": "16:00",
+      "Icone": "📍",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 12",
+      "Item": 19,
+      "Description": "Bryce Point",
+      "HeureD": "16:00",
+      "HeureF": "17:00",
+      "Icone": "📍",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 12",
+      "Item": 20,
+      "Description": "Coucher de soleil à Sunrise Point 🌄",
+      "HeureD": "19:00",
+      "HeureF": "20:00",
+      "Icone": "📍",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 12",
+      "Item": 21,
+      "Description": "Check-in hôtel",
+      "HeureD": "20:15",
+      "HeureF": "20:30",
+      "Durée": "0:15"
+    },
+    {
+      "Jour": "Jour 12",
+      "Item": 22,
+      "Description": "20h30 Dîner",
+      "HeureD": "20:30",
+      "HeureF": "22:00",
+      "Icone": "🍽️",
+      "Durée": "1:30"
+    },
+    {
+      "Jour": "Jour 12",
+      "Item": 23,
+      "Description": "Nuit à Best Western PLUS Bryce Canyon Grand Hotel",
+      "HeureD": "22:00",
+      "Icone": "🛏️"
+    },
+    {
+      "Jour": "Jour 13",
+      "Item": 1,
+      "Description": "queen's garden + navajo loop (partiel) 3h",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 13",
+      "Item": 2,
+      "Description": "Scenic 12: bryce -> escalante (dej)->boulder ->torrey",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 13",
+      "Item": 3,
+      "Description": "arrets courts:",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 13",
+      "Item": 4,
+      "Description": "• Escalante",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 13",
+      "Item": 5,
+      "Description": "• head of the rocks overlook",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 13",
+      "Item": 6,
+      "Description": "• Boulder mountain",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 13",
+      "Item": 7,
+      "Description": "aprem Fuita historic district",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 13",
+      "Item": 8,
+      "Description": "hickman 3km A/R (arche spectaculaire) ou Goosenecks ovelook (5-10min)",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 13",
+      "Item": 9,
+      "Description": "arrivée à Caineville vers 18h",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 14",
+      "Item": 1,
+      "Description": "Mooscape: Arret 5-10min de Caineville - temps sur lace 30-45 min",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 14",
+      "Item": 2,
+      "Description": "A 30 mn au nord d'Hanksville, il y a Goblin Valley SP et Little Wild Horse Canyon, un superbe slot canyon (vérifiez bien la météo avant de vous engager) 1h30-2h sur place",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 14",
+      "Item": 3,
+      "Description": "De Hanksville, partez vers le sud en empruntant l'UT95, magnifique aussi.",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 14",
+      "Item": 4,
+      "Description": "En chemin, selon vos goûts : Little Egypt, Leprechaun Canyon (où des scènes de 127h ont été tournées), Natural Bridge NM, des ruines indiennes comme Road Canyon et Mule Canyon (cf carte du site), Muley Point, Gooseneck SP",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 14",
+      "Item": 5,
+      "Description": "Puis arrivée à MV par le bon côté pour Forrest Gump Point",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 14",
+      "Item": 6,
+      "Description": "coucher de soleil à MV",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 15",
+      "Item": 1,
+      "Description": "Balade à cheval Navajo 1h30 ",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 15",
+      "Item": 2,
+      "Description": "Valley Drive (boucle de 27 km) , arrets incontournables:",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 15",
+      "Item": 3,
+      "Description": "• john ford's point",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 15",
+      "Item": 4,
+      "Description": "• the mittens ",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 15",
+      "Item": 5,
+      "Description": "• totem Pole ",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 15",
+      "Item": 6,
+      "Description": "•  artisit's point ",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 15",
+      "Item": 7,
+      "Description": "dej",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 15",
+      "Item": 8,
+      "Description": "route vers Page ",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 15",
+      "Item": 9,
+      "Description": "Horseshoe Bend",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 16",
+      "Item": 1,
+      "Description": "matin tot:",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 16",
+      "Item": 2,
+      "Description": "new wave (45 min- 1h)",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 16",
+      "Item": 3,
+      "Description": "stud horse point (15-20 min) point de vue sur e lac powell",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 16",
+      "Item": 4,
+      "Description": "fin de mat: antelope canyon (X, lower, upper?)",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 16",
+      "Item": 5,
+      "Description": "aprem",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 16",
+      "Item": 6,
+      "Description": "Lone rock Beach ",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 16",
+      "Item": 7,
+      "Description": "bateau/kayak lake powell",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 16",
+      "Item": 8,
+      "Description": "fin de journée à l'hotel",
+      "HeureD": "22:00",
+      "Icone": "🛏️"
+    },
+    {
+      "Jour": "Jour 17",
+      "Item": 1,
+      "Description": "Route grand Canyon, arret à Little Colorodao river gorge (15-20min)",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 17",
+      "Item": 2,
+      "Description": "pause à Cameron (taco navajo)",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 17",
+      "Item": 3,
+      "Description": "entrée Est grand Canyon - desert view drive",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 17",
+      "Item": 4,
+      "Description": "points de vue:",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 17",
+      "Item": 5,
+      "Description": "grandview",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 17",
+      "Item": 6,
+      "Description": "moran",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 17",
+      "Item": 7,
+      "Description": "desert view watchtower",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 17",
+      "Item": 8,
+      "Description": "arrivée grand canyon village 16h ",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 17",
+      "Item": 9,
+      "Description": "hopi point pour coucher de soleil",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 18",
+      "Item": 1,
+      "Description": "matin: lever de soleil Mather point ou Yaki point",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 18",
+      "Item": 2,
+      "Description": "rando rim trail ou south kaibab trail (descente partielle, 1/2 tour libre)",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 18",
+      "Item": 3,
+      "Description": "dej",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 18",
+      "Item": 4,
+      "Description": "aprem: junior ranger program ",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 18",
+      "Item": 5,
+      "Description": "visitor centrer",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 18",
+      "Item": 6,
+      "Description": "route à Williams",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 19",
+      "Item": 1,
+      "Description": "matin: Visite Williams",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 19",
+      "Item": 2,
+      "Description": "Route 66 - ~5h avec arrets",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 19",
+      "Item": 3,
+      "Description": "(arret seligman pause dej (Delgadillo’s Snow Cap) ou  pause dej Kingman Mr. D'z )",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 19",
+      "Item": 4,
+      "Description": "arrivée fin de journée à LV pour visite nocture, une partie du strip",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 19",
+      "Item": 5,
+      "Description": "Show Fountains of Bellagio",
+      "HeureD": "19:30",
+      "HeureF": "20:15",
+      "Durée": "0:45"
+    },
+    {
+      "Jour": "Jour 19",
+      "Item": 6,
+      "Description": " Rain Show – Miracle Mile Shops",
+      "HeureD": "20:15",
+      "HeureF": "21:00",
+      "Durée": "0:45"
+    },
+    {
+      "Jour": "Jour 19",
+      "Item": 7,
+      "Description": "Lake of Dreams @ Wynn",
+      "HeureD": "21:00",
+      "HeureF": "22:00",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 20",
+      "Item": 1,
+      "Description": "Départ vers Goodsprings +",
+      "HeureD": "8:30",
+      "HeureF": "9:30",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 20",
+      "Item": 2,
+      "Description": "Visite & photos @ Seven Magic Mountains",
+      "HeureD": "9:30",
+      "HeureF": "11:00",
+      "Durée": "1:30"
+    },
+    {
+      "Jour": "Jour 20",
+      "Item": 3,
+      "Description": "Photo stop @ panneau “Welcome to Fabulous Las Vegas”",
+      "HeureD": "11:00",
+      "HeureF": "11:30",
+      "Durée": "0:30"
+    },
+    {
+      "Jour": "Jour 20",
+      "Item": 4,
+      "Description": "High Roller (~30 min)",
+      "HeureD": "11:30",
+      "HeureF": "12:15",
+      "Durée": "0:45"
+    },
+    {
+      "Jour": "Jour 20",
+      "Item": 5,
+      "Description": "Déjeuner Strip",
+      "HeureD": "12:15",
+      "HeureF": "13:30",
+      "Icone": "🍽️",
+      "Durée": "1:15"
+    },
+    {
+      "Jour": "Jour 20",
+      "Item": 6,
+      "Description": "Omega Mart / AREA15 (option)",
+      "HeureD": "13:30",
+      "HeureF": "15:30",
+      "Durée": "2:00"
+    },
+    {
+      "Jour": "Jour 20",
+      "Item": 7,
+      "Description": "Début Downtown et murals photos",
+      "HeureD": "15:30",
+      "HeureF": "16:30",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 20",
+      "Item": 8,
+      "Description": "Arrivée Fremont Street Experience",
+      "HeureD": "16:30",
+      "HeureF": "18:00",
+      "Durée": "1:30"
+    },
+    {
+      "Jour": "Jour 20",
+      "Item": 9,
+      "Description": "Dîner Downtown ou Strip ou miracle mile shops",
+      "HeureD": "18:00",
+      "HeureF": "20:15",
+      "Icone": "🍽️",
+      "Durée": "2:15"
+    },
+    {
+      "Jour": "Jour 20",
+      "Item": 10,
+      "Description": "Rain Show – Miracle Mile Shops",
+      "HeureD": "20:15",
+      "HeureF": "21:00",
+      "Durée": "0:45"
+    },
+    {
+      "Jour": "Jour 20",
+      "Item": 11,
+      "Description": "Lake of Dreams @ Wynn",
+      "HeureD": "21:00",
+      "HeureF": "22:00",
+      "Durée": "1:00"
+    },
+    {
+      "Jour": "Jour 21",
+      "Item": 1,
+      "Description": "Pisine",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 21",
+      "Item": 2,
+      "Description": "Sphere – extérieur (light show) – remarquable à voir à tout moment.   ",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 21",
+      "Item": 3,
+      "Description": "Retour sur Fremont Street Experience pour l’ambiance de jour.   ",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 21",
+      "Item": 4,
+      "Description": "Shopping ou promenade détente sur le Strip",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 21",
+      "Item": 5,
+      "Description": "Dernières photos @ Welcome Sign si pas fait",
+      "Durée": "0:00"
+    },
+    {
+      "Jour": "Jour 21",
+      "Item": 6,
+      "Description": "Décollage  Las Vegas",
+      "HeureD": "17:50",
+      "Icone": "✈️",
+      "Durée": "0:00"
+    }
+  ]
+}
